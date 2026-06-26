@@ -11,7 +11,7 @@ import { getDataSourceCopy, getFractureScenarioLabel } from '../../lib/scenarioS
 function getWelcomeMessage(mode: ScenarioType, locale: Locale) {
   const welcomeMap: Record<Locale, Record<string, string>> = {
     'zh-CN': {
-      coal: '## 系统就绪\n\n煤矿瓦斯集群巡测AI助手已上线。\n\n当前展示矿井巷道切片内的微型机器人集群，可使用快捷指令分析 CH₄、CO、O₂、温度、通风盲区与 Mesh 覆盖。',
+      coal: '## 系统就绪\n\n煤矿集群巡测AI助手已上线。\n\n当前展示矿井巷道切片内的微型机器人集群，可使用快捷指令分析 CH₄、CO、O₂、温度、通风盲区与 Mesh 覆盖。',
       gold: '## 系统就绪\n\n金矿安全AI助手已上线。\n\n当前监测金矿井下裂缝网络，可使用快捷指令分析微震、岩爆风险、应力集中等数据。',
       oil: '## 系统就绪\n\n油气储层AI助手已上线。\n\n当前监测油气储层裂缝网络，可使用快捷指令分析孔隙压力、渗透率、含油饱和度等数据。',
       pipeline: '## 系统就绪\n\n小口径管道内检AI助手已上线。\n\n当前监测 DN50-DN150 支线/满管管段，可使用快捷指令分析超声壁厚、腐蚀减薄、堵塞、压力、H₂S 与可通行性。',

@@ -18,7 +18,7 @@ const DATA_SOURCE_SCENARIO: Record<Exclude<DataSourceType, 'fracture'>, Scenario
 
 /** 场景化欢迎语 — 切场景时替换第一条系统消息 */
 const SCENARIO_WELCOME: Record<ScenarioType, string> = {
-  coal: '## 系统就绪\n\n煤矿瓦斯巡检AI助手已上线。\n\n请在设置中配置AI模型（推荐 DeepSeek），或使用快捷指令。',
+  coal: '## 系统就绪\n\n煤矿巡检AI助手已上线。\n\n请在设置中配置AI模型（推荐 DeepSeek），或使用快捷指令。',
   gold: '## 系统就绪\n\n金矿安全AI助手已上线。\n\n请在设置中配置AI模型（推荐 DeepSeek），或使用快捷指令。',
   oil: '## 系统就绪\n\n油气储层AI助手已上线。\n\n请在设置中配置AI模型（推荐 DeepSeek），或使用快捷指令。',
   pipeline: '## 系统就绪\n\n管线巡检AI助手已上线。\n\n请在设置中配置AI模型（推荐 DeepSeek），或使用快捷指令。',

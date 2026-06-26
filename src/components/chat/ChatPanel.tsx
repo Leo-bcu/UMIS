@@ -37,7 +37,7 @@ export function ChatPanel() {
       if (scenario === 'underground') return 'Underground Flow Detection AI';
       return 'Inspection AI';
     }
-    if (scenario === 'coal') return '煤矿瓦斯巡检AI助手';
+    if (scenario === 'coal') return '煤矿巡检AI助手';
     if (scenario === 'pipeline') return '管线巡检AI助手';
     if (scenario === 'nuclear') return '核反应堆检修AI助手';
     if (scenario === 'refinery') return '化工密闭空间AI助手';
