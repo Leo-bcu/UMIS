@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #EEF2F6;
+    --background-secondary: #F8FAFC;
+    --background-tertiary: #FFFFFF;
+    --background-panel: #E5EAF1;
+    --scene-background: #101820;
+    --primary-yellow: #C99A2E;
+    --primary-red: #B42318;
+    --primary-blue: #1F2937;
+    --primary-orange: #B54708;
+    --text: #182230;
+    --text-muted: #667085;
+    --border-glow: rgba(31, 41, 55, 0.12);
+    --border-subtle: #D9E1EA;
+    --safe: #087443;
+    --warning: #9A6700;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html, body, #root {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: var(--background);
+    color: var(--text);
+    font-family: 'Inter', 'Noto Sans SC', system-ui, sans-serif;
+    font-size: 13px;
+  }
+
+  /* Custom Scrollbar - Light Graphite */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #E5EAF1;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #C4CDD9;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #98A2B3;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-background-secondary/95 backdrop-blur-md border border-[#D9E1EA] rounded-lg shadow-sm;
+  }
+
+  .glass-panel-hover {
+    @apply transition-all duration-300 hover:border-[#B7C3D0] hover:bg-white;
+  }
+
+  .industrial-slider {
+    @apply appearance-none w-full h-1 bg-background-panel rounded-full cursor-pointer;
+  }
+  .industrial-slider::-webkit-slider-thumb {
+    @apply appearance-none w-4 h-4 rounded-full bg-primary-blue cursor-pointer border-2 border-white shadow-sm;
+  }
+  .industrial-slider::-moz-range-thumb {
+    @apply w-4 h-4 rounded-full bg-primary-blue border-2 border-white cursor-pointer;
+  }
+
+  .scan-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 5;
+  }
+  .scan-overlay::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(201, 154, 46, 0.18), transparent);
+    animation: scanLine 3s linear infinite;
+  }
+
+  .neon-text {
+    text-shadow: none;
+  }
+
+  .danger-text {
+    text-shadow: none;
+  }
+
+  .grid-bg {
+    background-color: var(--scene-background);
+    background-image:
+      linear-gradient(rgba(148, 163, 184, 0.10) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(148, 163, 184, 0.10) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+}
+
+@keyframes scanLine {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+/* 骨架屏 shimmer — 全局复用，避免每个组件重复定义 */
+@keyframes hive-skeleton-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
