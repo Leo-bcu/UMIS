@@ -1,0 +1,155 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="2520" viewBox="0 0 1600 2520">
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="20" stdDeviation="24" flood-color="#0f172a" flood-opacity="0.22"/>
+    </filter>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="10"/>
+    </filter>
+    <linearGradient id="tubeA" x1="0" x2="1"><stop offset="0" stop-color="#5fbca0"/><stop offset=".58" stop-color="#d4a72f"/><stop offset="1" stop-color="#a95445"/></linearGradient>
+    <linearGradient id="tubeB" x1="0" x2="1"><stop offset="0" stop-color="#48cae4"/><stop offset=".62" stop-color="#80ffdb"/><stop offset="1" stop-color="#ffd166"/></linearGradient>
+    <linearGradient id="tubeC" x1="0" x2="1"><stop offset="0" stop-color="#4da1a9"/><stop offset=".58" stop-color="#e0a92f"/><stop offset="1" stop-color="#c85959"/></linearGradient>
+    <pattern id="gridA" width="52" height="52" patternUnits="userSpaceOnUse">
+      <path d="M 52 0 L 0 0 0 52" fill="none" stroke="#94a3b8" stroke-width="1" opacity=".13"/>
+    </pattern>
+    <pattern id="gridB" width="52" height="52" patternUnits="userSpaceOnUse">
+      <path d="M 52 0 L 0 0 0 52" fill="none" stroke="#49d6ff" stroke-width="1" opacity=".16"/>
+    </pattern>
+    <pattern id="gridC" width="52" height="52" patternUnits="userSpaceOnUse">
+      <path d="M 52 0 L 0 0 0 52" fill="none" stroke="#cbd5e1" stroke-width="1" opacity=".16"/>
+    </pattern>
+    <style>
+      .title{font:700 34px Inter,Arial,"Noto Sans SC",sans-serif;fill:#172033}
+      .subtitle{font:400 18px Inter,Arial,"Noto Sans SC",sans-serif;fill:#667085}
+      .h2{font:700 24px Inter,Arial,"Noto Sans SC",sans-serif;fill:#1d2939}
+      .note{font:400 15px Inter,Arial,"Noto Sans SC",sans-serif;fill:#667085}
+      .brand{font:800 17px Inter,Arial,"Noto Sans SC",sans-serif}
+      .small{font:500 11px Inter,Arial,"Noto Sans SC",sans-serif;letter-spacing:.08em}
+      .label{font:700 14px Inter,Arial,"Noto Sans SC",sans-serif}
+      .text{font:400 13px Inter,Arial,"Noto Sans SC",sans-serif}
+      .mono{font:700 22px "JetBrains Mono",Consolas,monospace}
+      .tiny{font:500 11px Inter,Arial,"Noto Sans SC",sans-serif}
+      .pill{font:600 12px Inter,Arial,"Noto Sans SC",sans-serif}
+    </style>
+  </defs>
+
+  <rect width="1600" height="2520" fill="#f3f6fa"/>
+  <text x="60" y="58" class="title">HIVE UI/UX 国际化工业质感改造方向</text>
+  <text x="60" y="92" class="subtitle">三版色调明确区分：A 最稳、B 最有指挥中心感、C 最像国际订阅制 Web 产品。</text>
+
+  <g transform="translate(60 122)">
+    <rect width="1480" height="188" rx="18" fill="#ffffff" stroke="#d9e1ea"/>
+    <text x="24" y="36" class="h2">详细改造表</text>
+    <g class="text" fill="#475467">
+      <text x="24" y="72">颜色系统：黄色从主视觉降级为选中/主操作，风险色只服务状态，背景改为中性灰黑或深海蓝黑。</text>
+      <text x="24" y="102">字体系统：正文改 Inter / Noto Sans SC，数字保留 JetBrains Mono，品牌标题少量使用窄体。</text>
+      <text x="24" y="132">信息层级：先任务状态、风险复查、交付就绪，再展示机器人/传感器/原始参数。</text>
+      <text x="24" y="162">交互体验：3D 标签降噪，AI 面板变成可审计助手，导出中心变成交付包工作流。</text>
+    </g>
+    <g transform="translate(1060 32)">
+      <rect width="54" height="34" rx="7" fill="#0b1015"/><rect x="64" width="54" height="34" rx="7" fill="#6ee7a8"/><rect x="128" width="54" height="34" rx="7" fill="#061223"/><rect x="192" width="54" height="34" rx="7" fill="#36d1dc"/><rect x="256" width="54" height="34" rx="7" fill="#ffffff" stroke="#ccd5df"/><rect x="320" width="54" height="34" rx="7" fill="#0b111a"/>
+      <text x="0" y="68" class="tiny" fill="#667085">A Graphite / B Deep Blue / C Light SaaS</text>
+    </g>
+  </g>
+
+  <!-- Variant A -->
+  <g transform="translate(60 360)" filter="url(#shadow)">
+    <text x="0" y="-28" class="h2">A 版：Graphite Safety Workbench</text>
+    <text x="430" y="-28" class="note">石墨黑 + 冷灰 + 安全绿 + 克制琥珀。最稳，最国际工业软件。</text>
+    <rect width="1480" height="660" rx="22" fill="#0b1015"/>
+    <rect width="1480" height="58" fill="#0a0f14"/>
+    <rect y="58" width="320" height="568" fill="#0f151b"/>
+    <rect x="1160" y="58" width="320" height="568" fill="#0f151b"/>
+    <rect y="626" width="1480" height="34" fill="#0a0f14"/>
+    <line x1="0" y1="58" x2="1480" y2="58" stroke="#202a34"/>
+    <line x1="320" y1="58" x2="320" y2="626" stroke="#202a34"/>
+    <line x1="1160" y1="58" x2="1160" y2="626" stroke="#202a34"/>
+    <circle cx="35" cy="29" r="18" fill="#d7aa2f"/><text x="29" y="35" class="brand" fill="#101418">H</text>
+    <text x="64" y="24" class="brand" fill="#e6edf3">HIVE Safety Cognition</text>
+    <text x="64" y="40" class="small" fill="#7c8794">UNKNOWN SPACE DELIVERY WORKBENCH</text>
+    <g transform="translate(340 16)">
+      <rect width="168" height="28" rx="7" fill="#17312a" stroke="#2f6c54"/><text x="14" y="19" class="pill" fill="#6ee7a8">Mission: 北翼回风巷</text>
+      <rect x="178" width="62" height="28" rx="7" fill="#151d25" stroke="#263241"/><text x="194" y="19" class="pill" fill="#aeb8c5">Coal</text>
+      <rect x="250" width="104" height="28" rx="7" fill="#151d25" stroke="#263241"/><text x="264" y="19" class="pill" fill="#aeb8c5">Coverage 68%</text>
+      <rect x="364" width="122" height="28" rx="7" fill="#151d25" stroke="#263241"/><text x="378" y="19" class="pill" fill="#aeb8c5">Review Queue 7</text>
+    </g>
+    <rect x="1324" y="16" width="120" height="28" rx="7" fill="#17312a" stroke="#2f6c54"/><text x="1343" y="35" class="pill" fill="#6ee7a8">Export Package</text>
+
+    <g transform="translate(22 82)">
+      <text class="label" fill="#d7dee7">任务状态</text><text x="210" class="tiny" fill="#f97373">NEEDS REVIEW</text>
+      <g transform="translate(0 22)">
+        <rect width="130" height="70" rx="10" fill="#141c23" stroke="#24303b"/><text x="14" y="24" class="tiny" fill="#8b98a8">覆盖</text><text x="14" y="55" class="mono" fill="#6ee7a8">68%</text>
+        <rect x="144" width="130" height="70" rx="10" fill="#141c23" stroke="#24303b"/><text x="158" y="24" class="tiny" fill="#8b98a8">高优先级</text><text x="158" y="55" class="mono" fill="#f97373">4</text>
+        <rect y="82" width="130" height="70" rx="10" fill="#141c23" stroke="#24303b"/><text x="14" y="106" class="tiny" fill="#8b98a8">机器人在线</text><text x="14" y="137" class="mono" fill="#e6edf3">121</text>
+        <rect x="144" y="82" width="130" height="70" rx="10" fill="#141c23" stroke="#24303b"/><text x="158" y="106" class="tiny" fill="#8b98a8">交付就绪</text><text x="158" y="137" class="mono" fill="#d7aa2f">54%</text>
+      </g>
+      <text y="206" class="label" fill="#d7dee7">复查队列</text>
+      <rect y="224" width="274" height="62" rx="10" fill="#141c23" stroke="#24303b"/><text x="14" y="248" class="label" fill="#f97373">CH4 浓度超限 · R-037</text><text x="14" y="270" class="text" fill="#9aa5b1">实测证据，建议封锁 15m 区域</text>
+      <rect y="298" width="274" height="62" rx="10" fill="#141c23" stroke="#24303b"/><text x="14" y="322" class="label" fill="#d7aa2f">AI 推断渗透异常</text><text x="14" y="344" class="text" fill="#9aa5b1">低置信，需人工二次确认</text>
+      <rect y="372" width="274" height="62" rx="10" fill="#141c23" stroke="#24303b"/><text x="14" y="396" class="label" fill="#d7dee7">机器人离线 · R-058</text><text x="14" y="418" class="text" fill="#9aa5b1">最后回传 11.2m，Mesh relay 弱</text>
+    </g>
+    <g transform="translate(320 58)">
+      <rect width="840" height="568" fill="#071015"/>
+      <ellipse cx="425" cy="230" rx="360" ry="260" fill="#18242c" opacity=".65" filter="url(#soft)"/>
+      <path d="M0 420 L840 250" stroke="#94a3b8" opacity=".13"/><rect width="840" height="568" fill="url(#gridA)" opacity=".7"/>
+      <rect x="180" y="245" width="330" height="20" rx="10" fill="url(#tubeA)" transform="rotate(-24 180 245)"/>
+      <rect x="548" y="330" width="230" height="16" rx="8" fill="#5fbca0" opacity=".78" transform="rotate(18 548 330)"/>
+      <rect x="330" y="452" width="280" height="16" rx="8" fill="#314552" opacity=".7" transform="rotate(-8 330 452)"/>
+      <circle cx="470" cy="245" r="7" fill="#f97373"/><circle cx="642" cy="350" r="7" fill="#d7aa2f"/><circle cx="365" cy="450" r="7" fill="#6ee7a8"/>
+      <rect x="44" y="34" width="230" height="68" rx="10" fill="#0c1218" stroke="#263241"/><text x="60" y="62" class="label" fill="#e6edf3">Truth Boundary</text><text x="60" y="84" class="text" fill="#9aa5b1">Measured / AI inferred separated</text>
+      <rect x="500" y="162" width="220" height="96" rx="10" fill="#0c1218" stroke="#263241"/><text x="516" y="190" class="label" fill="#f97373">F-C2 · CH4 Risk</text><text x="516" y="214" class="text" fill="#c7d1dc">Confidence 0.82</text><text x="516" y="236" class="text" fill="#9aa5b1">Evidence: R-037 / 2 sensors</text>
+    </g>
+    <g transform="translate(1184 82)">
+      <text class="label" fill="#d7dee7">发现详情</text><text x="220" class="tiny" fill="#8b98a8">F-C2</text>
+      <rect y="24" width="250" height="76" rx="10" fill="#141c23" stroke="#24303b"/><text x="14" y="52" class="label" fill="#f97373">需要复查</text><text x="14" y="76" class="text" fill="#9aa5b1">CH4 1.63%，可信边界：实测。</text>
+      <text y="136" class="label" fill="#d7dee7">证据</text>
+      <rect y="154" width="250" height="58" rx="10" fill="#141c23" stroke="#24303b"/><text x="14" y="178" class="label" fill="#e6edf3">R-037 传感器</text><text x="14" y="198" class="text" fill="#9aa5b1">CH4 1.63% · 12:01</text>
+      <rect y="224" width="250" height="58" rx="10" fill="#141c23" stroke="#24303b"/><text x="14" y="248" class="label" fill="#e6edf3">覆盖边界</text><text x="14" y="268" class="text" fill="#9aa5b1">未知采样位 21%</text>
+      <rect y="294" width="250" height="58" rx="10" fill="#141c23" stroke="#24303b"/><text x="14" y="318" class="label" fill="#e6edf3">AI 建议</text><text x="14" y="338" class="text" fill="#9aa5b1">不直接声明安全</text>
+    </g>
+    <rect x="320" y="488" width="840" height="138" fill="#0a0f14" opacity=".96"/><text x="342" y="520" class="label" fill="#e6edf3">AI 安全助手</text><text x="1030" y="520" class="tiny" fill="#6ee7a8">审计开启</text><rect x="342" y="538" width="560" height="58" rx="10" fill="#141c23" stroke="#24303b"/><text x="360" y="572" class="text" fill="#c7d1dc">根据 R-037 和 F-C2 实测证据，建议优先复查。该结论不构成安全放行。</text>
+    <text x="22" y="648" class="tiny" fill="#8b98a8">Compliance: AI inference requires human review before safety clearance</text><text x="1328" y="648" class="tiny" fill="#8b98a8">12:01:40 · zh-CN</text>
+  </g>
+
+  <!-- Variant B -->
+  <g transform="translate(60 1110)" filter="url(#shadow)">
+    <text x="0" y="-28" class="h2">B 版：Deep Command Center</text>
+    <text x="430" y="-28" class="note">深海蓝黑 + 青蓝 + 电光绿。实时指挥中心感更强，更适合安全调度大屏。</text>
+    <rect width="1480" height="660" rx="22" fill="#061223"/>
+    <rect width="1480" height="58" fill="#040e1c"/><rect y="58" width="320" height="568" fill="#07182c"/><rect x="1160" y="58" width="320" height="568" fill="#07182c"/><rect y="626" width="1480" height="34" fill="#040e1c"/>
+    <line x1="0" y1="58" x2="1480" y2="58" stroke="#16445e"/><line x1="320" y1="58" x2="320" y2="626" stroke="#16445e"/><line x1="1160" y1="58" x2="1160" y2="626" stroke="#16445e"/>
+    <circle cx="35" cy="29" r="18" fill="#36d1dc"/><text x="29" y="35" class="brand" fill="#061223">H</text><text x="64" y="24" class="brand" fill="#eaf6ff">HIVE Command</text><text x="64" y="40" class="small" fill="#8fb7cc">ROBOTIC INSPECTION OPS</text>
+    <g transform="translate(340 16)"><rect width="104" height="28" rx="7" fill="#0f5c78" stroke="#49d6ff"/><text x="16" y="19" class="pill" fill="#eaffff">Live Mission</text><rect x="114" width="118" height="28" rx="7" fill="#152d49" stroke="#255b7b"/><text x="128" y="19" class="pill" fill="#b8dff2">Fleet 121 Online</text><rect x="242" width="96" height="28" rx="7" fill="#152d49" stroke="#255b7b"/><text x="256" y="19" class="pill" fill="#b8dff2">Mesh Stable</text><rect x="348" width="104" height="28" rx="7" fill="#152d49" stroke="#255b7b"/><text x="362" y="19" class="pill" fill="#b8dff2">Coverage 68%</text></g>
+    <rect x="1326" y="16" width="112" height="28" rx="7" fill="#0f5c78" stroke="#49d6ff"/><text x="1351" y="35" class="pill" fill="#eaffff">Review Now</text>
+    <g transform="translate(22 82)"><text class="label" fill="#eaf6ff">指挥摘要</text><text x="234" class="tiny" fill="#80ffdb">LIVE</text>
+      <rect y="22" width="130" height="70" rx="10" fill="#0d2239" stroke="#255b7b"/><text x="14" y="46" class="tiny" fill="#8fb7cc">风险热点</text><text x="14" y="77" class="mono" fill="#ff5c7a">4</text><rect x="144" y="22" width="130" height="70" rx="10" fill="#0d2239" stroke="#255b7b"/><text x="158" y="46" class="tiny" fill="#8fb7cc">待调度</text><text x="158" y="77" class="mono" fill="#ffd166">3</text>
+      <rect y="104" width="130" height="70" rx="10" fill="#0d2239" stroke="#255b7b"/><text x="14" y="128" class="tiny" fill="#8fb7cc">通信质量</text><text x="14" y="159" class="mono" fill="#80ffdb">91%</text><rect x="144" y="104" width="130" height="70" rx="10" fill="#0d2239" stroke="#255b7b"/><text x="158" y="128" class="tiny" fill="#8fb7cc">任务进度</text><text x="158" y="159" class="mono" fill="#eaf6ff">2.4h</text>
+      <text y="228" class="label" fill="#eaf6ff">行动建议</text><rect y="246" width="274" height="62" rx="10" fill="#0d2239" stroke="#255b7b"/><text x="14" y="270" class="label" fill="#80ffdb">派 R-024 复测 F-C2</text><text x="14" y="292" class="text" fill="#8fb7cc">预计 8 分钟抵达，信号路径稳定</text><rect y="320" width="274" height="62" rx="10" fill="#0d2239" stroke="#255b7b"/><text x="14" y="344" class="label" fill="#ff5c7a">暂停人员进入 B 区</text><text x="14" y="366" class="text" fill="#8fb7cc">AI 不可放行，需现场确认</text>
+    </g>
+    <g transform="translate(320 58)"><rect width="840" height="568" fill="#020914"/><ellipse cx="425" cy="230" rx="360" ry="260" fill="#12395b" opacity=".72" filter="url(#soft)"/><rect width="840" height="568" fill="url(#gridB)"/><rect x="180" y="245" width="330" height="20" rx="10" fill="url(#tubeB)" transform="rotate(-24 180 245)"/><rect x="548" y="330" width="230" height="16" rx="8" fill="#43bccd" opacity=".82" transform="rotate(18 548 330)"/><rect x="330" y="452" width="280" height="16" rx="8" fill="#1c4c68" opacity=".72" transform="rotate(-8 330 452)"/><circle cx="470" cy="245" r="7" fill="#ff5c7a"/><circle cx="642" cy="350" r="7" fill="#ffd166"/><circle cx="365" cy="450" r="7" fill="#80ffdb"/><rect x="44" y="34" width="230" height="74" rx="10" fill="#05101e" stroke="#2d7aa0"/><text x="60" y="62" class="label" fill="#eaf6ff">Mission Route</text><text x="60" y="84" class="text" fill="#b8dff2">R-024 reroute prepared</text><text x="60" y="102" class="text" fill="#80ffdb">Mesh relay: OK</text><rect x="500" y="162" width="220" height="96" rx="10" fill="#05101e" stroke="#2d7aa0"/><text x="516" y="190" class="label" fill="#49d6ff">AI Action Audit</text><text x="516" y="214" class="text" fill="#cdeeff">2 allowed · 1 blocked</text><text x="516" y="236" class="text" fill="#80ffdb">Undo available</text></g>
+    <g transform="translate(1184 82)"><text class="label" fill="#eaf6ff">调度面板</text><text x="220" class="tiny" fill="#8fb7cc">R-024</text><rect y="24" width="250" height="76" rx="10" fill="#0d2239" stroke="#255b7b"/><text x="14" y="52" class="label" fill="#80ffdb">推荐机器人</text><text x="14" y="76" class="text" fill="#8fb7cc">电量 78%，信号 -64 dBm。</text><text y="136" class="label" fill="#eaf6ff">实时证据</text><rect y="154" width="250" height="58" rx="10" fill="#0d2239" stroke="#255b7b"/><text x="14" y="178" class="label" fill="#eaf6ff">CH4</text><rect x="14" y="190" width="210" height="7" rx="4" fill="#1a3a55"/><rect x="14" y="190" width="172" height="7" rx="4" fill="#ff5c7a"/><rect y="224" width="250" height="58" rx="10" fill="#0d2239" stroke="#255b7b"/><text x="14" y="248" class="label" fill="#eaf6ff">CO</text><rect x="14" y="260" width="210" height="7" rx="4" fill="#1a3a55"/><rect x="14" y="260" width="72" height="7" rx="4" fill="#80ffdb"/></g>
+    <rect x="320" y="488" width="840" height="138" fill="#040e1c" opacity=".96"/><text x="342" y="520" class="label" fill="#eaf6ff">AI Copilot</text><text x="1008" y="520" class="tiny" fill="#49d6ff">Guarded Actions</text><rect x="342" y="538" width="560" height="58" rx="10" fill="#0d2239" stroke="#255b7b"/><text x="360" y="572" class="text" fill="#cdeeff">我可以生成复查路线和导出预检，但不能把该区域标记为安全。</text>
+    <text x="22" y="648" class="tiny" fill="#8fb7cc">Ops mode: shared situational awareness / no safety clearance by AI</text><text x="1328" y="648" class="tiny" fill="#8fb7cc">12:01:40 · en-US</text>
+  </g>
+
+  <!-- Variant C -->
+  <g transform="translate(60 1860)" filter="url(#shadow)">
+    <text x="0" y="-28" class="h2">C 版：International SaaS Workbench</text>
+    <text x="430" y="-28" class="note">浅色产品外壳 + 深色 3D 画布。最易用，最像可订阅的国际 Web 产品。</text>
+    <rect width="1480" height="660" rx="22" fill="#edf1f5"/>
+    <rect width="1480" height="58" fill="#ffffff"/><rect y="58" width="320" height="568" fill="#f8fafc"/><rect x="1160" y="58" width="320" height="568" fill="#f8fafc"/><rect y="626" width="1480" height="34" fill="#ffffff"/>
+    <line x1="0" y1="58" x2="1480" y2="58" stroke="#d9e0ea"/><line x1="320" y1="58" x2="320" y2="626" stroke="#d9e0ea"/><line x1="1160" y1="58" x2="1160" y2="626" stroke="#d9e0ea"/>
+    <circle cx="35" cy="29" r="18" fill="#1f2937"/><text x="29" y="35" class="brand" fill="#ffffff">H</text><text x="64" y="24" class="brand" fill="#182230">HIVE Workspace</text><text x="64" y="40" class="small" fill="#667085">EVIDENCE-FIRST INSPECTION DELIVERY</text>
+    <g transform="translate(340 16)"><rect width="80" height="28" rx="7" fill="#e7f7ef" stroke="#b7e4cb"/><text x="18" y="19" class="pill" fill="#087443">Mission</text><rect x="90" width="78" height="28" rx="7" fill="#f2f5f9" stroke="#d9e0ea"/><text x="108" y="19" class="pill" fill="#475467">Findings</text><rect x="178" width="80" height="28" rx="7" fill="#f2f5f9" stroke="#d9e0ea"/><text x="194" y="19" class="pill" fill="#475467">Evidence</text><rect x="268" width="74" height="28" rx="7" fill="#f2f5f9" stroke="#d9e0ea"/><text x="284" y="19" class="pill" fill="#475467">Exports</text></g>
+    <rect x="1318" y="16" width="120" height="28" rx="7" fill="#e7f7ef" stroke="#b7e4cb"/><text x="1342" y="35" class="pill" fill="#087443">Create Report</text>
+    <g transform="translate(22 82)"><text class="label" fill="#1d2939">Mission Snapshot</text><text x="224" class="tiny" fill="#b54708">REVIEW</text>
+      <rect y="22" width="130" height="70" rx="10" fill="#ffffff" stroke="#d9e0ea"/><text x="14" y="46" class="tiny" fill="#667085">Coverage</text><text x="14" y="77" class="mono" fill="#087443">68%</text><rect x="144" y="22" width="130" height="70" rx="10" fill="#ffffff" stroke="#d9e0ea"/><text x="158" y="46" class="tiny" fill="#667085">Open Risks</text><text x="158" y="77" class="mono" fill="#d92d20">4</text>
+      <rect y="104" width="130" height="70" rx="10" fill="#ffffff" stroke="#d9e0ea"/><text x="14" y="128" class="tiny" fill="#667085">Reviewed</text><text x="14" y="159" class="mono" fill="#1d2939">12</text><rect x="144" y="104" width="130" height="70" rx="10" fill="#ffffff" stroke="#d9e0ea"/><text x="158" y="128" class="tiny" fill="#667085">Export Ready</text><text x="158" y="159" class="mono" fill="#b54708">54%</text>
+      <text y="228" class="label" fill="#1d2939">Priority Findings</text><rect y="246" width="274" height="62" rx="10" fill="#ffffff" stroke="#d9e0ea"/><text x="14" y="270" class="label" fill="#d92d20">CH4 exceeded threshold</text><text x="14" y="292" class="text" fill="#667085">Measured evidence · assigned to Safety</text><rect y="320" width="274" height="62" rx="10" fill="#ffffff" stroke="#d9e0ea"/><text x="14" y="344" class="label" fill="#b54708">Low confidence AI inference</text><text x="14" y="366" class="text" fill="#667085">Needs field verification before report</text>
+    </g>
+    <g transform="translate(320 58)"><rect width="840" height="568" fill="#0b111a"/><ellipse cx="425" cy="230" rx="360" ry="260" fill="#26364a" opacity=".78" filter="url(#soft)"/><rect width="840" height="568" fill="url(#gridC)"/><rect x="180" y="245" width="330" height="20" rx="10" fill="url(#tubeC)" transform="rotate(-24 180 245)"/><rect x="548" y="330" width="230" height="16" rx="8" fill="#4da1a9" opacity=".82" transform="rotate(18 548 330)"/><rect x="330" y="452" width="280" height="16" rx="8" fill="#36495b" opacity=".72" transform="rotate(-8 330 452)"/><circle cx="470" cy="245" r="7" fill="#d92d20"/><circle cx="642" cy="350" r="7" fill="#e0a92f"/><circle cx="365" cy="450" r="7" fill="#12b76a"/><rect x="44" y="34" width="230" height="74" rx="10" fill="#ffffff" stroke="#d9e0ea"/><text x="60" y="62" class="label" fill="#182230">Selected Finding</text><text x="60" y="84" class="text" fill="#475467">CH4 exceeded threshold</text><text x="60" y="102" class="text" fill="#087443">Measured boundary</text><rect x="500" y="162" width="220" height="96" rx="10" fill="#ffffff" stroke="#d9e0ea"/><text x="516" y="190" class="label" fill="#182230">Export Preflight</text><text x="516" y="214" class="text" fill="#475467">2 warnings · 0 blocked</text><text x="516" y="236" class="text" fill="#087443">AI inferred excluded</text></g>
+    <g transform="translate(1184 82)"><text class="label" fill="#1d2939">Evidence Card</text><text x="220" class="tiny" fill="#667085">F-C2</text><rect y="24" width="250" height="76" rx="10" fill="#ffffff" stroke="#d9e0ea"/><text x="14" y="52" class="label" fill="#d92d20">Not ready for clearance</text><text x="14" y="76" class="text" fill="#667085">Measured gas risk and coverage gaps.</text><text y="136" class="label" fill="#1d2939">Report Package</text><rect y="154" width="250" height="58" rx="10" fill="#ffffff" stroke="#d9e0ea"/><text x="14" y="178" class="label" fill="#1d2939">PDF summary</text><text x="14" y="198" class="text" fill="#667085">Includes truth boundary</text><rect y="224" width="250" height="58" rx="10" fill="#ffffff" stroke="#d9e0ea"/><text x="14" y="248" class="label" fill="#1d2939">LAS / OBJ</text><text x="14" y="268" class="text" fill="#667085">Ready for CAD tools</text></g>
+    <rect x="320" y="488" width="840" height="138" fill="#ffffff" opacity=".97"/><text x="342" y="520" class="label" fill="#1d2939">Ask HIVE AI</text><text x="1014" y="520" class="tiny" fill="#087443">Evidence required</text><rect x="342" y="538" width="560" height="58" rx="10" fill="#f8fafc" stroke="#d9e0ea"/><text x="360" y="572" class="text" fill="#475467">Summarize unresolved findings and mark what needs field verification before export.</text>
+    <text x="22" y="648" class="tiny" fill="#667085">Evidence-first reports. AI recommendations are bounded and auditable.</text><text x="1308" y="648" class="tiny" fill="#667085">2026-06-14 12:01</text>
+  </g>
+</svg>
