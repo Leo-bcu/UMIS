@@ -123,6 +123,17 @@ npm run dev
 npm run build      # 输出到 dist/
 npm run preview    # 本地预览
 ```
+
+### GitHub Pages 纯前端 Demo
+
+项目默认使用 mock 数据，可作为不依赖 Python、FastAPI、Mine 推理服务和 WebSocket 的纯前端展示版运行。
+
+1. 将仓库推送到 GitHub 的 `main` 分支。
+2. 在仓库 `Settings > Pages > Build and deployment` 中选择 `GitHub Actions`。
+3. 推送代码或在 `Actions > Deploy frontend demo to GitHub Pages` 中手动运行工作流。
+
+工作流会执行 `npm ci` 和 `npm run build`，再将 `dist/` 发布到 Pages。真实后端模式需要另外部署服务，并通过 `VITE_API_MODE=live` 和 `VITE_API_BASE_URL` 配置连接地址。
+
 ### 后端启动（可选）
 ```bash
 cd backend

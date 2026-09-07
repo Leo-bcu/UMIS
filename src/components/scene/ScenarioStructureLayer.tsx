@@ -134,7 +134,7 @@ function MineBackWall() {
 }
 
 function RealCoalHighwallReference() {
-  const source = useLoader(OBJLoader, '/models/coal-mine/fieg-highwall-reference.obj');
+  const source = useLoader(OBJLoader, `${import.meta.env.BASE_URL}models/coal-mine/fieg-highwall-reference.obj`);
 
   const model = useMemo(() => {
     const cloned = source.clone(true);

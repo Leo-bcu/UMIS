@@ -12,10 +12,10 @@ const MONITOR_IMAGE_MODULES = import.meta.glob('../../approch/camera/*.png', {
 const MONITOR_IMAGE_POOL = Object.entries(MONITOR_IMAGE_MODULES)
   .map(([path, url]) => ({ path, url }))
   .sort((a, b) => a.path.localeCompare(b.path));
+const DEMO_FALLBACK_IMAGE = `${import.meta.env.BASE_URL}robot.svg`;
 
 function toPublicCameraPath(fileUrl: string): string {
-  const fileName = fileUrl.split('/').pop();
-  return fileName ? `/approch/camera/${fileName}` : fileUrl;
+  return fileUrl;
 }
 
 // Seeded random
@@ -447,9 +447,9 @@ let cachedMonitors: Monitor[] | null = null;
 let monitorFrameCursor = 0;
 
 function pickMonitorImage(index: number): string {
-  if (MONITOR_IMAGE_POOL.length === 0) return `/api/monitors/${index + 1}/frame/1`;
+  if (MONITOR_IMAGE_POOL.length === 0) return DEMO_FALLBACK_IMAGE;
   const item = MONITOR_IMAGE_POOL[index % MONITOR_IMAGE_POOL.length] ?? null;
-  return item ? toPublicCameraPath(item.url) : `/api/monitors/${index + 1}/frame/1`;
+  return item ? toPublicCameraPath(item.url) : DEMO_FALLBACK_IMAGE;
 }
 
 function buildMonitorFrames(monitorId: string, labels: string[], baseIndex: number): MonitorFrame[] {

@@ -124,33 +124,33 @@ function normalizeLiveResponse(response: MineInferenceResponse, request: Monitor
   };
 }
 
+function buildMockResponse(request: MonitorInferenceRequest): MonitorInferenceResponse {
+  const seed = hashString(`${request.monitorId}:${request.imageUrl}:${request.force ? 'force' : 'normal'}`);
+  const summary = buildMockSummary(request.imageUrl, request.monitorId, seed);
+  const response: MonitorInferenceResponse = {
+    monitorId: request.monitorId,
+    imageUrl: request.imageUrl,
+    cachedAt: Date.now(),
+    backend: 'mock',
+    frameHistory: [buildFrame(request.imageUrl, summary, Date.now() - (seed % 2500) / 100)],
+    detectionSummary: summary,
+  };
+  setCachedMonitorInference(response);
+  return response;
+}
+
 export async function inferMonitorFrame(request: MonitorInferenceRequest): Promise<MonitorInferenceResponse> {
   const cached = !request.force ? getCachedMonitorInference(request.monitorId, request.imageUrl) : null;
   if (cached) return cached;
 
-  try {
-    const live = await inferMineFrame(request);
-    const response = normalizeLiveResponse(live, request);
-    setCachedMonitorInference(response);
-    return response;
-  } catch (error) {
-    if (!isMockMode) {
-      throw error;
-    }
-
-    const seed = hashString(`${request.monitorId}:${request.imageUrl}:${request.force ? 'force' : 'normal'}`);
-    const summary = buildMockSummary(request.imageUrl, request.monitorId, seed);
-    const response: MonitorInferenceResponse = {
-      monitorId: request.monitorId,
-      imageUrl: request.imageUrl,
-      cachedAt: Date.now(),
-      backend: 'mock',
-      frameHistory: [buildFrame(request.imageUrl, summary, Date.now() - (seed % 2500) / 100)],
-      detectionSummary: summary,
-    };
-    setCachedMonitorInference(response);
-    return response;
+  if (isMockMode) {
+    return buildMockResponse(request);
   }
+
+  const live = await inferMineFrame(request);
+  const response = normalizeLiveResponse(live, request);
+  setCachedMonitorInference(response);
+  return response;
 }
 
 export async function inferMonitorBatch(requests: MonitorInferenceRequest[]): Promise<MonitorInferenceResponse[]> {
