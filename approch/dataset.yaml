@@ -1,0 +1,18 @@
+path: /Users/leo/Desktop/allnews/labelme_json_dir/YOLODataset_seg
+train: images/train
+val: images/val
+
+# Classes
+nc: 11
+names:
+  0: support_structure
+  1: cable
+  2: tube
+  3: electrical_device
+  4: indicator
+  5: mining_machine
+  6: door
+  7: rescue_equipment
+  8: person
+  9: rail_track
+  10: container

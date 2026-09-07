@@ -1,0 +1,567 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HIVE UI/UX Direction Mockups</title>
+  <style>
+    :root {
+      --page: #f4f6f8;
+      --ink: #141922;
+      --muted: #657080;
+      --line: #d8dee7;
+      font-family: Inter, "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--page);
+      color: var(--ink);
+      font-size: 14px;
+    }
+    .page {
+      width: 1440px;
+      margin: 0 auto;
+      padding: 32px 36px 56px;
+    }
+    .intro {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 30px;
+      letter-spacing: 0;
+    }
+    h2 {
+      margin: 0 0 14px;
+      font-size: 18px;
+    }
+    p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .card {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      box-shadow: 0 12px 30px rgba(24, 33, 46, 0.06);
+      padding: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+    th, td {
+      border-bottom: 1px solid #e6ebf2;
+      padding: 9px 10px;
+      vertical-align: top;
+      text-align: left;
+      line-height: 1.45;
+    }
+    th {
+      color: #344054;
+      background: #f7f9fc;
+      font-weight: 700;
+    }
+    td { color: #475467; }
+    .palette {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .swatch {
+      height: 34px;
+      flex: 1;
+      border-radius: 7px;
+      border: 1px solid rgba(0,0,0,.12);
+    }
+    .mockups {
+      display: grid;
+      gap: 34px;
+      margin-top: 28px;
+    }
+    .variant-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      margin: 0 0 12px;
+    }
+    .variant-head h2 { margin: 0; font-size: 21px; }
+    .variant-head span { color: #667085; font-size: 12px; }
+    .screen {
+      width: 1368px;
+      height: 768px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(15, 23, 42, 0.18);
+      box-shadow: 0 24px 70px rgba(15, 23, 42, 0.22);
+      position: relative;
+    }
+    .topbar, .bottombar {
+      position: absolute;
+      left: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      z-index: 10;
+    }
+    .topbar {
+      top: 0;
+      height: 58px;
+      padding: 0 18px;
+      gap: 18px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 260px;
+    }
+    .logo {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+    }
+    .brand b {
+      display: block;
+      font-size: 14px;
+      letter-spacing: .02em;
+    }
+    .brand small {
+      display: block;
+      margin-top: 2px;
+      font-size: 10px;
+      color: currentColor;
+      opacity: .55;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      flex: 1;
+    }
+    .pill {
+      border-radius: 7px;
+      padding: 6px 10px;
+      font-size: 11px;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .toolbar-right {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 11px;
+    }
+    .layout {
+      position: absolute;
+      inset: 58px 0 34px;
+      display: grid;
+      grid-template-columns: 300px 1fr 318px;
+    }
+    .panel {
+      padding: 14px;
+      overflow: hidden;
+    }
+    .scene {
+      position: relative;
+      overflow: hidden;
+    }
+    .scene-grid {
+      position: absolute;
+      inset: 0;
+      background-size: 48px 48px;
+      transform: perspective(900px) rotateX(56deg) translateY(90px) scale(1.15);
+      transform-origin: center;
+      opacity: .55;
+    }
+    .tube, .tube2, .tube3 {
+      position: absolute;
+      height: 18px;
+      border-radius: 999px;
+      transform-origin: left center;
+      filter: drop-shadow(0 12px 22px rgba(0,0,0,.35));
+    }
+    .tube { width: 330px; left: 250px; top: 255px; transform: rotate(-24deg); }
+    .tube2 { width: 220px; left: 610px; top: 345px; transform: rotate(18deg); opacity: .78; }
+    .tube3 { width: 280px; left: 430px; top: 465px; transform: rotate(-8deg); opacity: .55; }
+    .node {
+      position: absolute;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      box-shadow: 0 0 0 5px rgba(255,255,255,.06);
+    }
+    .scene-card {
+      position: absolute;
+      border-radius: 10px;
+      padding: 12px;
+      font-size: 11px;
+      line-height: 1.5;
+      backdrop-filter: blur(14px);
+    }
+    .scene-card b { display: block; font-size: 12px; margin-bottom: 5px; }
+    .chat {
+      position: absolute;
+      left: 300px;
+      right: 318px;
+      bottom: 34px;
+      height: 178px;
+      padding: 12px 14px;
+      z-index: 8;
+    }
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+    .metric {
+      border-radius: 8px;
+      padding: 10px;
+    }
+    .metric small {
+      display: block;
+      font-size: 10px;
+      opacity: .65;
+      margin-bottom: 5px;
+    }
+    .metric b {
+      font-size: 18px;
+      font-family: "JetBrains Mono", ui-monospace, monospace;
+    }
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 0 10px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .list {
+      display: grid;
+      gap: 8px;
+    }
+    .item {
+      border-radius: 9px;
+      padding: 10px;
+      font-size: 11px;
+      line-height: 1.35;
+    }
+    .item b { display: block; font-size: 12px; margin-bottom: 4px; }
+    .bar {
+      height: 6px;
+      border-radius: 999px;
+      overflow: hidden;
+      margin-top: 8px;
+    }
+    .bar i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+    }
+    .bottombar {
+      bottom: 0;
+      height: 34px;
+      padding: 0 18px;
+      font-size: 11px;
+      justify-content: space-between;
+    }
+
+    /* Variant A */
+    .a { background: #0b1015; color: #e6edf3; }
+    .a .topbar, .a .bottombar { background: rgba(10, 15, 20, .94); border-color: rgba(255,255,255,.08); }
+    .a .topbar { border-bottom: 1px solid rgba(255,255,255,.08); }
+    .a .bottombar { border-top: 1px solid rgba(255,255,255,.08); color: #8b98a8; }
+    .a .logo { background: #d7aa2f; color: #101418; }
+    .a .pill { background: #151d25; border: 1px solid #263241; color: #aeb8c5; }
+    .a .pill.active { background: #17312a; color: #6ee7a8; border-color: #2f6c54; }
+    .a .panel { background: #0f151b; border-right: 1px solid #202a34; }
+    .a .panel.right { border-left: 1px solid #202a34; border-right: 0; }
+    .a .scene { background: radial-gradient(circle at 50% 44%, #18242c, #070b0f 72%); }
+    .a .scene-grid { background-image: linear-gradient(rgba(148,163,184,.10) 1px, transparent 1px), linear-gradient(90deg, rgba(148,163,184,.10) 1px, transparent 1px); }
+    .a .tube { background: linear-gradient(90deg, #5fbca0, #d4a72f, #a95445); }
+    .a .tube2 { background: linear-gradient(90deg, #46687a, #5fbca0); }
+    .a .tube3 { background: #314552; }
+    .a .node { background: #f97373; }
+    .a .scene-card { background: rgba(12,18,24,.84); border: 1px solid #263241; color: #c7d1dc; }
+    .a .metric, .a .item { background: #141c23; border: 1px solid #24303b; }
+    .a .chat { background: rgba(10,15,20,.93); border-top: 1px solid #202a34; }
+    .a .bar { background: #222c35; }
+
+    /* Variant B */
+    .b { background: #061223; color: #eaf6ff; }
+    .b .topbar, .b .bottombar { background: rgba(4, 14, 28, .94); }
+    .b .topbar { border-bottom: 1px solid rgba(76, 201, 240, .18); }
+    .b .bottombar { border-top: 1px solid rgba(76, 201, 240, .18); color: #8fb7cc; }
+    .b .logo { background: #36d1dc; color: #061223; }
+    .b .pill { background: rgba(21, 45, 73, .75); border: 1px solid rgba(86, 163, 217, .22); color: #b8dff2; }
+    .b .pill.active { background: rgba(15, 92, 120, .85); color: #eaffff; border-color: #49d6ff; }
+    .b .panel { background: #07182c; border-right: 1px solid rgba(90, 177, 230, .16); }
+    .b .panel.right { border-left: 1px solid rgba(90, 177, 230, .16); border-right: 0; }
+    .b .scene { background: radial-gradient(circle at 48% 42%, #12395b, #020914 74%); }
+    .b .scene-grid { background-image: linear-gradient(rgba(73,214,255,.13) 1px, transparent 1px), linear-gradient(90deg, rgba(73,214,255,.13) 1px, transparent 1px); }
+    .b .tube { background: linear-gradient(90deg, #48cae4, #80ffdb, #ffd166); }
+    .b .tube2 { background: linear-gradient(90deg, #277da1, #43bccd); }
+    .b .tube3 { background: #1c4c68; }
+    .b .node { background: #ff5c7a; }
+    .b .scene-card { background: rgba(5,16,30,.82); border: 1px solid rgba(73,214,255,.22); color: #cdeeff; }
+    .b .metric, .b .item { background: rgba(13, 34, 57, .86); border: 1px solid rgba(80, 174, 230, .16); }
+    .b .chat { background: rgba(4,14,28,.93); border-top: 1px solid rgba(76,201,240,.18); }
+    .b .bar { background: rgba(124, 200, 235, .16); }
+
+    /* Variant C */
+    .c { background: #edf1f5; color: #182230; }
+    .c .topbar { background: rgba(255,255,255,.96); border-bottom: 1px solid #d9e0ea; }
+    .c .bottombar { background: #ffffff; border-top: 1px solid #d9e0ea; color: #667085; }
+    .c .logo { background: #1f2937; color: #ffffff; }
+    .c .pill { background: #f2f5f9; border: 1px solid #d9e0ea; color: #475467; }
+    .c .pill.active { background: #e7f7ef; color: #087443; border-color: #b7e4cb; }
+    .c .panel { background: #f8fafc; border-right: 1px solid #d9e0ea; color: #1d2939; }
+    .c .panel.right { border-left: 1px solid #d9e0ea; border-right: 0; }
+    .c .scene { background: radial-gradient(circle at 48% 42%, #26364a, #0b111a 74%); }
+    .c .scene-grid { background-image: linear-gradient(rgba(203,213,225,.13) 1px, transparent 1px), linear-gradient(90deg, rgba(203,213,225,.13) 1px, transparent 1px); }
+    .c .tube { background: linear-gradient(90deg, #4da1a9, #e0a92f, #c85959); }
+    .c .tube2 { background: linear-gradient(90deg, #59748a, #4da1a9); }
+    .c .tube3 { background: #36495b; }
+    .c .node { background: #d92d20; }
+    .c .scene-card { background: rgba(255,255,255,.92); border: 1px solid #d9e0ea; color: #344054; }
+    .c .metric, .c .item { background: #ffffff; border: 1px solid #d9e0ea; }
+    .c .chat { background: rgba(255,255,255,.96); border-top: 1px solid #d9e0ea; color: #1d2939; }
+    .c .bar { background: #e4e9f1; }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="intro">
+      <div class="card">
+        <h1>HIVE UI/UX 国际化工业质感改造方向</h1>
+        <p>目标不是把产品做成更炫，而是让现场安全员、工程师、管理者一眼知道任务状态、风险证据、复查边界和交付能力。下面三版都保留现有“未知空间安全认知工作台”的产品定位，但在色调、信息层级和商业化气质上拉开差异。</p>
+      </div>
+      <div class="card">
+        <h2>三版色调定位</h2>
+        <table>
+          <thead><tr><th>版本</th><th>主色调</th><th>气质</th><th>适合</th></tr></thead>
+          <tbody>
+            <tr><td>A</td><td>石墨黑 / 冷灰 / 安全绿 / 克制琥珀</td><td>最稳、最国际工业软件</td><td>Flyability / NavVis 风格</td></tr>
+            <tr><td>B</td><td>深海蓝黑 / 青蓝 / 电光绿</td><td>更像指挥中心，更有科技感</td><td>DroneDeploy / GroundHog 指挥屏</td></tr>
+            <tr><td>C</td><td>浅灰 SaaS 外壳 / 深色 3D 画布</td><td>最易用、最像订阅制 Web 产品</td><td>非专家、管理者、国际客户演示</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>详细改造表</h2>
+      <table>
+        <thead>
+          <tr><th>模块</th><th>当前问题</th><th>改造方式</th><th>产品收益</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>颜色系统</td><td>黄黑高饱和面积过大，容易像游戏 HUD</td><td>黄色降级为选中/主按钮；背景用中性灰黑或深蓝；风险色只服务状态</td><td>更可信、更耐看，减少视觉疲劳</td></tr>
+          <tr><td>字体</td><td>Oswald 全局使用，中文正文偏紧张</td><td>正文改 Inter / Noto Sans SC；数字用 JetBrains Mono；品牌少量保留窄体</td><td>国际化阅读体验明显提升</td></tr>
+          <tr><td>顶部栏</td><td>工具、场景、时间、导出并列，层级不够</td><td>左品牌，中任务/场景，右角色/语言/导出；弱化技术标签</td><td>用户先理解“我在哪个任务里”</td></tr>
+          <tr><td>左侧栏</td><td>告警、机器人、系统状态同时抢注意力</td><td>先放 Mission Snapshot / Risk Queue / Fleet Health；原始参数下沉</td><td>管理者和安全员更快行动</td></tr>
+          <tr><td>右侧栏</td><td>参数很多但缺少复查优先级</td><td>详情页先给结论卡：状态、可信边界、证据、建议动作，再给参数表</td><td>从“看数据”变成“做决策”</td></tr>
+          <tr><td>3D 画布</td><td>悬浮标签太多，调试感强</td><td>默认只显示高风险、当前选中和任务路径；其它按层/悬停显示</td><td>场景更干净，空间关系更清楚</td></tr>
+          <tr><td>AI 面板</td><td>像聊天工具，不像受控安全助手</td><td>加入 evidence chips、动作审计、复查提示、可撤销状态</td><td>AI 从“聊天”变成可审计工作流</td></tr>
+          <tr><td>导出中心</td><td>功能强，但商业交付感可再加强</td><td>改为 Export Package：用途、边界、预检、历史、重工具衔接</td><td>更像付费壁垒</td></tr>
+          <tr><td>空/错状态</td><td>现场失败时用户不知道下一步</td><td>每个错误给原因、影响、下一步动作、是否可跳过</td><td>降低现场使用焦虑</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="mockups">
+      <article>
+        <div class="variant-head">
+          <div>
+            <h2>A 版：Graphite Safety Workbench</h2>
+            <span>石墨黑 + 冷灰 + 安全绿 + 克制琥珀。最稳，最像国际工业安全软件。</span>
+          </div>
+          <div class="palette" style="width: 360px">
+            <div class="swatch" style="background:#0b1015"></div>
+            <div class="swatch" style="background:#1f2933"></div>
+            <div class="swatch" style="background:#6ee7a8"></div>
+            <div class="swatch" style="background:#d7aa2f"></div>
+            <div class="swatch" style="background:#f97373"></div>
+          </div>
+        </div>
+        <div class="screen a">
+          <div class="topbar">
+            <div class="brand"><div class="logo">H</div><div><b>HIVE Safety Cognition</b><small>UNKNOWN SPACE DELIVERY WORKBENCH</small></div></div>
+            <div class="nav"><span class="pill active">Mission: 北翼回风巷</span><span class="pill">Coal</span><span class="pill">Coverage 68%</span><span class="pill">Review Queue 7</span><span class="pill">AI Guarded</span></div>
+            <div class="toolbar-right"><span>Engineer</span><span class="pill active">Export Package</span></div>
+          </div>
+          <div class="layout">
+            <aside class="panel">
+              <div class="section-title">任务状态 <span>NEEDS REVIEW</span></div>
+              <div class="metric-grid">
+                <div class="metric"><small>覆盖</small><b style="color:#6ee7a8">68%</b></div>
+                <div class="metric"><small>高优先级</small><b style="color:#f97373">4</b></div>
+                <div class="metric"><small>机器人在线</small><b>121/200</b></div>
+                <div class="metric"><small>交付就绪</small><b style="color:#d7aa2f">54%</b></div>
+              </div>
+              <div style="height:18px"></div>
+              <div class="section-title">复查队列 <span>7</span></div>
+              <div class="list">
+                <div class="item"><b style="color:#f97373">CH4 浓度超限 · R-037</b>实测证据，建议封锁 15m 区域<div class="bar"><i style="width:78%;background:#f97373"></i></div></div>
+                <div class="item"><b style="color:#d7aa2f">AI 推断渗透异常</b>低置信，需人工二次确认<div class="bar"><i style="width:55%;background:#d7aa2f"></i></div></div>
+                <div class="item"><b>机器人离线 · R-058</b>最后回传 11.2m，Mesh relay 弱</div>
+              </div>
+            </aside>
+            <section class="scene">
+              <div class="scene-grid"></div><div class="tube"></div><div class="tube2"></div><div class="tube3"></div>
+              <span class="node" style="left:560px;top:254px"></span><span class="node" style="left:750px;top:380px;background:#d7aa2f"></span><span class="node" style="left:430px;top:460px;background:#6ee7a8"></span>
+              <div class="scene-card" style="left:42px;top:32px"><b>Truth Boundary</b>Measured / AI inferred clearly separated</div>
+              <div class="scene-card" style="left:520px;top:170px"><b>F-C2 · CH4 Risk</b>Confidence 0.82<br/>Evidence: R-037 / 2 sensors</div>
+            </section>
+            <aside class="panel right">
+              <div class="section-title">发现详情 <span>F-C2</span></div>
+              <div class="item"><b style="color:#f97373">需要复查</b>CH4 1.63%，超过安全阈值。可信边界：实测。</div>
+              <div style="height:12px"></div>
+              <div class="section-title">证据</div>
+              <div class="list">
+                <div class="item"><b>R-037 传感器</b>CH4 1.63% · 2026/06/14 12:01</div>
+                <div class="item"><b>覆盖边界</b>已探明 68%，未知采样位 21%</div>
+                <div class="item"><b>AI 建议</b>复查相邻 F-017 节点，不直接声明安全</div>
+              </div>
+            </aside>
+          </div>
+          <div class="chat"><div class="section-title">AI 安全助手 <span>审计开启</span></div><div class="item">“根据 R-037 和 F-C2 的实测证据，我建议优先复查 CH4 异常区域。该结论不构成安全放行。”</div></div>
+          <div class="bottombar"><span>Compliance: AI inference requires human review before safety clearance</span><span>12:01:40 · zh-CN</span></div>
+        </div>
+      </article>
+
+      <article>
+        <div class="variant-head">
+          <div>
+            <h2>B 版：Deep Command Center</h2>
+            <span>深海蓝黑 + 青蓝 + 电光绿。更像实时指挥中心，科技感更强，但要控制“炫”。</span>
+          </div>
+          <div class="palette" style="width: 360px">
+            <div class="swatch" style="background:#061223"></div>
+            <div class="swatch" style="background:#12395b"></div>
+            <div class="swatch" style="background:#36d1dc"></div>
+            <div class="swatch" style="background:#80ffdb"></div>
+            <div class="swatch" style="background:#ff5c7a"></div>
+          </div>
+        </div>
+        <div class="screen b">
+          <div class="topbar">
+            <div class="brand"><div class="logo">H</div><div><b>HIVE Command</b><small>ROBOTIC INSPECTION OPS</small></div></div>
+            <div class="nav"><span class="pill active">Live Mission</span><span class="pill">Fleet 121 Online</span><span class="pill">Mesh Stable</span><span class="pill">Coverage 68%</span><span class="pill">Export Blocked</span></div>
+            <div class="toolbar-right"><span>Safety Officer</span><span class="pill active">Review Now</span></div>
+          </div>
+          <div class="layout">
+            <aside class="panel">
+              <div class="section-title">指挥摘要 <span>LIVE</span></div>
+              <div class="metric-grid">
+                <div class="metric"><small>风险热点</small><b style="color:#ff5c7a">4</b></div>
+                <div class="metric"><small>待调度</small><b style="color:#ffd166">3</b></div>
+                <div class="metric"><small>通信质量</small><b style="color:#80ffdb">91%</b></div>
+                <div class="metric"><small>任务进度</small><b>2.4h</b></div>
+              </div>
+              <div style="height:18px"></div>
+              <div class="section-title">行动建议</div>
+              <div class="list">
+                <div class="item"><b style="color:#80ffdb">派 R-024 复测 F-C2</b>预计 8 分钟抵达，信号路径稳定</div>
+                <div class="item"><b style="color:#ff5c7a">暂停人员进入 B 区</b>AI 不可放行，需现场确认</div>
+                <div class="item"><b>准备交付包</b>排除 2 条低置信 AI 推断后可导出</div>
+              </div>
+            </aside>
+            <section class="scene">
+              <div class="scene-grid"></div><div class="tube"></div><div class="tube2"></div><div class="tube3"></div>
+              <span class="node" style="left:560px;top:254px"></span><span class="node" style="left:750px;top:380px;background:#ffd166"></span><span class="node" style="left:430px;top:460px;background:#80ffdb"></span>
+              <div class="scene-card" style="left:42px;top:32px"><b>Mission Route</b>R-024 reroute prepared<br/>Mesh relay: OK</div>
+              <div class="scene-card" style="left:520px;top:170px"><b>AI Action Audit</b>2 allowed · 1 blocked<br/>Undo available</div>
+            </section>
+            <aside class="panel right">
+              <div class="section-title">调度面板 <span>R-024</span></div>
+              <div class="item"><b style="color:#80ffdb">推荐机器人</b>电量 78%，信号 -64 dBm，距离目标 31m。</div>
+              <div style="height:12px"></div>
+              <div class="section-title">实时证据</div>
+              <div class="list">
+                <div class="item"><b>CH4</b><div class="bar"><i style="width:82%;background:#ff5c7a"></i></div></div>
+                <div class="item"><b>CO</b><div class="bar"><i style="width:34%;background:#80ffdb"></i></div></div>
+                <div class="item"><b>Temperature</b><div class="bar"><i style="width:62%;background:#ffd166"></i></div></div>
+              </div>
+            </aside>
+          </div>
+          <div class="chat"><div class="section-title">AI Copilot <span>Guarded Actions</span></div><div class="item">“我可以生成复查路线和导出预检，但不能把该区域标记为安全。是否将 F-C2 加入复查任务？”</div></div>
+          <div class="bottombar"><span>Ops mode: shared situational awareness / no safety clearance by AI</span><span>12:01:40 · en-US</span></div>
+        </div>
+      </article>
+
+      <article>
+        <div class="variant-head">
+          <div>
+            <h2>C 版：International SaaS Workbench</h2>
+            <span>浅色产品外壳 + 深色 3D 画布。最像可订阅 Web 产品，非专家最容易接受。</span>
+          </div>
+          <div class="palette" style="width: 360px">
+            <div class="swatch" style="background:#ffffff"></div>
+            <div class="swatch" style="background:#edf1f5"></div>
+            <div class="swatch" style="background:#0b111a"></div>
+            <div class="swatch" style="background:#087443"></div>
+            <div class="swatch" style="background:#d92d20"></div>
+          </div>
+        </div>
+        <div class="screen c">
+          <div class="topbar">
+            <div class="brand"><div class="logo">H</div><div><b>HIVE Workspace</b><small>Evidence-first inspection delivery</small></div></div>
+            <div class="nav"><span class="pill active">Mission</span><span class="pill">Findings</span><span class="pill">Evidence</span><span class="pill">Exports</span><span class="pill">Team</span></div>
+            <div class="toolbar-right"><span>Manager</span><span class="pill active">Create Report</span></div>
+          </div>
+          <div class="layout">
+            <aside class="panel">
+              <div class="section-title">Mission Snapshot <span>Review</span></div>
+              <div class="metric-grid">
+                <div class="metric"><small>Coverage</small><b style="color:#087443">68%</b></div>
+                <div class="metric"><small>Open Risks</small><b style="color:#d92d20">4</b></div>
+                <div class="metric"><small>Reviewed</small><b>12</b></div>
+                <div class="metric"><small>Export Ready</small><b style="color:#b54708">54%</b></div>
+              </div>
+              <div style="height:18px"></div>
+              <div class="section-title">Priority Findings</div>
+              <div class="list">
+                <div class="item"><b style="color:#d92d20">CH4 exceeded threshold</b>Measured evidence · assigned to Safety</div>
+                <div class="item"><b style="color:#b54708">Low confidence AI inference</b>Needs field verification before report</div>
+                <div class="item"><b>Robot disconnected</b>Last seen near F-058</div>
+              </div>
+            </aside>
+            <section class="scene">
+              <div class="scene-grid"></div><div class="tube"></div><div class="tube2"></div><div class="tube3"></div>
+              <span class="node" style="left:560px;top:254px"></span><span class="node" style="left:750px;top:380px;background:#e0a92f"></span><span class="node" style="left:430px;top:460px;background:#12b76a"></span>
+              <div class="scene-card" style="left:42px;top:32px"><b>Selected Finding</b>CH4 exceeded threshold<br/>Measured boundary</div>
+              <div class="scene-card" style="left:520px;top:170px"><b>Export Preflight</b>2 warnings · 0 blocked<br/>AI inferred excluded</div>
+            </section>
+            <aside class="panel right">
+              <div class="section-title">Evidence Card <span>F-C2</span></div>
+              <div class="item"><b style="color:#d92d20">Not ready for clearance</b>The area has measured gas risk and unresolved coverage gaps.</div>
+              <div style="height:12px"></div>
+              <div class="section-title">Report Package</div>
+              <div class="list">
+                <div class="item"><b>PDF summary</b>Management-ready, includes truth boundary</div>
+                <div class="item"><b>LAS / OBJ</b>Ready for CAD and point-cloud tools</div>
+                <div class="item"><b>CSV</b>Sensor matrix for downstream systems</div>
+              </div>
+            </aside>
+          </div>
+          <div class="chat"><div class="section-title">Ask HIVE AI <span>Evidence required</span></div><div class="item">“Summarize the unresolved findings for a manager, and mark which ones require field verification before export.”</div></div>
+          <div class="bottombar"><span>Evidence-first reports. AI recommendations are bounded and auditable.</span><span>2026-06-14 12:01</span></div>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1200" viewBox="0 0 1800 1200">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0b0f14"/>
+      <stop offset="1" stop-color="#15100b"/>
+    </linearGradient>
+    <linearGradient id="rock" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4b3a25"/>
+      <stop offset="1" stop-color="#241b12"/>
+    </linearGradient>
+    <linearGradient id="soil" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#6d5536"/>
+      <stop offset="1" stop-color="#42321e"/>
+    </linearGradient>
+    <linearGradient id="tunnel" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#4cc3b2"/>
+      <stop offset=".5" stop-color="#d2a12b"/>
+      <stop offset="1" stop-color="#b14b45"/>
+    </linearGradient>
+    <linearGradient id="hazard" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffb020"/>
+      <stop offset="1" stop-color="#f04e4e"/>
+    </linearGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="#8b98a8" stroke-opacity=".16" stroke-width="1"/>
+    </pattern>
+    <filter id="soft">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#000000" flood-opacity=".28"/>
+    </filter>
+    <style>
+      .h1{font:800 32px Inter,Arial,"Noto Sans SC",sans-serif;fill:#ecf3f8}
+      .h2{font:700 18px Inter,Arial,"Noto Sans SC",sans-serif;fill:#e7ecef}
+      .txt{font:500 13px Inter,Arial,"Noto Sans SC",sans-serif;fill:#c7d0d8}
+      .small{font:500 11px Inter,Arial,"Noto Sans SC",sans-serif;fill:#9fb0bc;letter-spacing:.06em}
+      .label{font:700 14px Inter,Arial,"Noto Sans SC",sans-serif;fill:#f3f6f8}
+      .num{font:800 18px "JetBrains Mono",Consolas,monospace;fill:#fff}
+    </style>
+  </defs>
+
+  <rect width="1800" height="1200" fill="url(#bg)"/>
+  <rect x="0" y="0" width="1800" height="1200" fill="url(#grid)" opacity=".48"/>
+
+  <text x="56" y="58" class="h1">Coal Mine Reference Board</text>
+  <text x="56" y="88" class="txt">目标不是“厚岩块里挂几条线”，而是斜井进入主运输巷、回风巷、采空区、顶板裂隙、涌水点和支护的真实矿井剖切。</text>
+
+  <!-- left panel -->
+  <g transform="translate(40 130)" filter="url(#shadow)">
+    <rect width="560" height="1020" rx="24" fill="#151b22" stroke="#2b3946"/>
+    <text x="28" y="42" class="h2">1. 真实剖切逻辑</text>
+    <text x="28" y="68" class="txt">地表薄，煤层在中部，矿井空间由巷道和采空区组成，不是整块厚岩。</text>
+
+    <rect x="28" y="92" width="504" height="256" rx="18" fill="#0b1218" stroke="#2a3641"/>
+    <path d="M34 134 C120 104, 226 104, 298 126 C350 140, 410 130, 528 112 L528 110 L34 110 Z" fill="#5c4427" opacity=".88"/>
+    <path d="M34 175 C108 148, 190 148, 264 164 C330 179, 402 175, 528 154 L528 340 L34 340 Z" fill="#362819" opacity=".9"/>
+    <path d="M78 124 L216 190 L326 262 L414 312" stroke="#6e5840" stroke-width="4" opacity=".65" fill="none"/>
+    <path d="M78 124 L216 190 L326 262 L414 312" stroke="#2a1e13" stroke-width="13" opacity=".88" fill="none"/>
+    <path d="M76 124 L215 190 L327 262 L412 312" stroke="url(#tunnel)" stroke-width="7" fill="none" stroke-linecap="round"/>
+    <path d="M215 190 L352 190 L452 214" stroke="url(#tunnel)" stroke-width="9" fill="none" stroke-linecap="round"/>
+    <path d="M327 262 L454 262" stroke="#5fc3b0" stroke-width="7" fill="none" stroke-linecap="round"/>
+    <path d="M414 312 L486 360" stroke="#d2a12b" stroke-width="8" fill="none" stroke-linecap="round"/>
+    <ellipse cx="366" cy="196" rx="62" ry="28" fill="#3f2e1d"/>
+    <ellipse cx="366" cy="196" rx="112" ry="58" fill="#8d5d27" opacity=".28"/>
+    <ellipse cx="458" cy="262" rx="70" ry="26" fill="#2a4450" opacity=".55"/>
+    <path d="M300 160 C328 138, 370 132, 430 146" stroke="#f04e4e" stroke-width="3" opacity=".85" fill="none"/>
+    <path d="M312 148 C340 128, 380 120, 446 134" stroke="#ffb020" stroke-width="2" opacity=".45" fill="none" stroke-dasharray="6 8"/>
+    <circle cx="112" cy="160" r="7" fill="#80ffdb"/>
+    <circle cx="226" cy="190" r="7" fill="#ffb020"/>
+    <circle cx="346" cy="190" r="7" fill="#f04e4e"/>
+    <circle cx="472" cy="262" r="7" fill="#80ffdb"/>
+    <text x="36" y="384" class="label">剖切示意</text>
+    <text x="36" y="410" class="txt">斜井进入后接主运输巷，顶部是薄地表/覆岩；中间是作业空间和采空区；右侧是回风/排水联络。</text>
+
+    <text x="28" y="462" class="h2">2. 必须可见的结构</text>
+    <g transform="translate(28 488)">
+      <rect width="504" height="118" rx="16" fill="#0b1218" stroke="#2a3641"/>
+      <circle cx="38" cy="38" r="9" fill="#5fc3b0"/><text x="58" y="42" class="label">斜井 / 入口</text>
+      <circle cx="38" cy="70" r="9" fill="#d2a12b"/><text x="58" y="74" class="label">主运输巷 / 回风巷</text>
+      <circle cx="38" cy="102" r="9" fill="#f04e4e"/><text x="58" y="106" class="label">采空区 / 老空区 / 瓦斯积聚</text>
+    </g>
+
+    <g transform="translate(28 624)">
+      <rect width="504" height="118" rx="16" fill="#0b1218" stroke="#2a3641"/>
+      <circle cx="38" cy="38" r="9" fill="#80ffdb"/><text x="58" y="42" class="label">顶板裂隙带</text>
+      <circle cx="38" cy="70" r="9" fill="#ffb020"/><text x="58" y="74" class="label">涌水点 / 暗流治理点</text>
+      <circle cx="38" cy="102" r="9" fill="#8e9fb0"/><text x="58" y="106" class="label">支护 / 锚杆 / 柱架</text>
+    </g>
+
+    <text x="28" y="804" class="h2">3. 机器人视觉目标</text>
+    <text x="28" y="832" class="txt">机器人轨迹必须沿巷道内部而不是贴着外壁；异常点默认可见，hover 只是强化，不决定是否显示。</text>
+    <rect x="28" y="856" width="504" height="132" rx="16" fill="#0b1218" stroke="#2a3641"/>
+    <path d="M54 952 C96 920, 132 888, 186 884 C240 880, 300 916, 364 904 C424 892, 472 860, 506 830" stroke="#5fc3b0" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <circle cx="94" cy="944" r="8" fill="#5fc3b0"/><circle cx="176" cy="900" r="8" fill="#d2a12b"/><circle cx="258" cy="908" r="8" fill="#f04e4e"/><circle cx="348" cy="894" r="8" fill="#80ffdb"/><circle cx="436" cy="860" r="8" fill="#ffb020"/>
+    <text x="28" y="1018" class="small">路径示意：斜井 → 主巷 → 采空区边界 → 顶板裂隙 → 排水点</text>
+  </g>
+
+  <!-- right 3D-ish board -->
+  <g transform="translate(640 130)" filter="url(#shadow)">
+    <rect width="1120" height="1020" rx="24" fill="#0f141a" stroke="#26333f"/>
+    <text x="28" y="42" class="h2">4. 3D 剖切目标图</text>
+    <text x="28" y="68" class="txt">更接近你要的三维效果：保留剖切质感，但让矿井空间一眼可读。</text>
+
+    <rect x="28" y="96" width="1064" height="860" rx="20" fill="#10161d"/>
+    <ellipse cx="610" cy="450" rx="430" ry="310" fill="#322313" opacity=".92"/>
+    <ellipse cx="640" cy="420" rx="360" ry="220" fill="#4a3822" opacity=".5" filter="url(#soft)"/>
+    <rect x="28" y="96" width="1064" height="860" rx="20" fill="url(#grid)" opacity=".22"/>
+
+    <!-- top strata -->
+    <path d="M60 188 C230 150, 356 140, 530 154 C690 168, 840 138, 1070 178 L1070 142 L60 142 Z" fill="#6b5538" opacity=".8"/>
+    <path d="M60 230 C260 198, 460 202, 620 222 C780 242, 930 230, 1070 210 L1070 350 L60 350 Z" fill="#3b2b1b" opacity=".9"/>
+
+    <!-- decline shaft -->
+    <path d="M140 166 L286 214 L390 290 L502 374" stroke="#2b1e13" stroke-width="24" stroke-linecap="round" fill="none"/>
+    <path d="M140 166 L286 214 L390 290 L502 374" stroke="url(#tunnel)" stroke-width="10" stroke-linecap="round" fill="none"/>
+    <path d="M500 374 L650 374 L782 360" stroke="#b14b45" stroke-width="10" stroke-linecap="round" fill="none"/>
+    <path d="M650 374 L650 500" stroke="#4cc3b2" stroke-width="8" stroke-linecap="round" fill="none"/>
+    <path d="M560 374 C612 332, 692 318, 772 332" stroke="#d2a12b" stroke-width="8" fill="none" stroke-linecap="round"/>
+
+    <!-- goaf and old goaf -->
+    <ellipse cx="668" cy="500" rx="190" ry="92" fill="#8f5c24" opacity=".35"/>
+    <ellipse cx="828" cy="458" rx="132" ry="72" fill="#f04e4e" opacity=".22"/>
+    <path d="M560 498 C660 446, 736 438, 860 474" stroke="#f04e4e" stroke-width="4" opacity=".72" fill="none"/>
+    <path d="M570 526 C688 500, 780 498, 928 526" stroke="#5fc3b0" stroke-width="4" opacity=".5" fill="none"/>
+
+    <!-- roof fissures -->
+    <path d="M624 324 C658 286, 712 274, 776 288" stroke="#80ffdb" stroke-width="3.5" opacity=".85" fill="none"/>
+    <path d="M684 286 C734 246, 810 238, 886 252" stroke="#80ffdb" stroke-width="2.5" opacity=".65" stroke-dasharray="6 8" fill="none"/>
+    <path d="M822 332 C872 304, 928 298, 986 314" stroke="#ffb020" stroke-width="2.5" opacity=".6" stroke-dasharray="5 7" fill="none"/>
+
+    <!-- support posts -->
+    <rect x="470" y="392" width="10" height="92" fill="#7d6a52" opacity=".8"/>
+    <rect x="626" y="392" width="10" height="92" fill="#7d6a52" opacity=".8"/>
+    <rect x="756" y="396" width="10" height="86" fill="#7d6a52" opacity=".8"/>
+    <rect x="880" y="418" width="10" height="72" fill="#7d6a52" opacity=".8"/>
+    <rect x="532" y="404" width="10" height="72" fill="#7d6a52" opacity=".55"/>
+    <rect x="690" y="404" width="10" height="72" fill="#7d6a52" opacity=".55"/>
+
+    <!-- robot path and points -->
+    <path d="M168 180 L260 220 L338 266 L416 318 L480 370 L584 402 L690 416 L774 438 L854 470" stroke="#6ee7a8" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <circle cx="168" cy="180" r="8" fill="#6ee7a8"/>
+    <circle cx="338" cy="266" r="8" fill="#d2a12b"/>
+    <circle cx="480" cy="370" r="8" fill="#ffb020"/>
+    <circle cx="690" cy="416" r="8" fill="#f04e4e"/>
+    <circle cx="854" cy="470" r="8" fill="#80ffdb"/>
+
+    <!-- labels -->
+    <rect x="70" y="118" width="222" height="62" rx="12" fill="#0b1218" stroke="#2a3641"/>
+    <text x="86" y="145" class="label">地表 / 斜井入口</text>
+    <text x="86" y="167" class="small">矿井入口从上部进入</text>
+
+    <rect x="560" y="332" width="220" height="62" rx="12" fill="#0b1218" stroke="#2a3641"/>
+    <text x="576" y="358" class="label">主运输巷 / 回风巷</text>
+    <text x="576" y="380" class="small">横向展开，连接作业区</text>
+
+    <rect x="742" y="492" width="224" height="62" rx="12" fill="#0b1218" stroke="#2a3641"/>
+    <text x="758" y="518" class="label">采空区 / 老空区</text>
+    <text x="758" y="540" class="small">默认可见，不靠 hover 才出现</text>
+
+    <rect x="816" y="264" width="210" height="62" rx="12" fill="#0b1218" stroke="#2a3641"/>
+    <text x="832" y="290" class="label">顶板裂隙带</text>
+    <text x="832" y="312" class="small">细、浅、连续，不是粗管道</text>
+
+    <rect x="132" y="700" width="280" height="82" rx="16" fill="#0b1218" stroke="#2a3641"/>
+    <text x="150" y="730" class="label">涌水治理点</text>
+    <text x="150" y="754" class="small">暗流与低洼积水应在空间里可读</text>
+
+    <circle cx="240" cy="742" r="18" fill="#ffb020" opacity=".16"/>
+    <circle cx="878" cy="520" r="24" fill="#f04e4e" opacity=".16"/>
+
+    <rect x="28" y="976" width="1064" height="34" rx="10" fill="#0b1218" stroke="#2a3641"/>
+    <text x="44" y="999" class="small">目标效果：一眼看出“入口在上方、矿道在中层、采空区在中心、裂隙在顶板、涌水在低洼、机器人沿巷道爬行”。</text>
+  </g>
+</svg>

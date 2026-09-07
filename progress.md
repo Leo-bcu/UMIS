@@ -1,0 +1,208 @@
+# Project Recon Progress
+
+## 2026-06-13
+
+- Started project reconnaissance.
+- Confirmed no existing planning files were present.
+- Created lightweight planning files for this investigation.
+- Completed root and documentation inventory.
+- Read README, API contract, package scripts/dependencies, docs index, UX audit, UI iteration report, data format, export standard, and AI prompt standard.
+- Mapped frontend entry/layout/store/scene/chat/API source files and backend FastAPI entry.
+- Reviewed scenario selector, AI prompt/action architecture, export hub, key hooks, screenshots, and UX fix log.
+- Identified live-contract risks around robot status and alert-level vocabulary.
+- Started full audit requested by user.
+- Ran `npm run build`: passed with chunk/import warnings.
+- Ran `npm run build:check`: failed during TypeScript compile.
+- Ran `npm run lint`: failed with public vendored-file linting plus source lint issues.
+- Ran `python3 -m compileall backend`: passed.
+- Fixed TypeScript compile blockers; `npm run build:check` now passes.
+- Fixed ESLint blockers; `npm run lint` now passes with warnings only.
+- Fixed backend live API schema drift for robots, robot stats, alerts, fracture node metadata, and fracture connectivity.
+- Ran Python compile and generator smoke check after backend changes; both passed.
+- Completed external product research pass against Cesium, ArcGIS, Bentley iTwin, DJI FlightHub 2, and Palantir AIP directions.
+- Added dedicated competitive research library at `docs/COMPETITIVE_RESEARCH.md` and indexed it from `docs/README.md` / `README.md`.
+- Added deep competitive comparison focused on unknown-space safety cognition rather than heavy industrial digital twin scope: Flyability, DroneDeploy, NavVis, PIX4Dsurvey, GroundHog, plus HIVE scoring and gap roadmap.
+- Added 90-point product roadmap at `docs/PRODUCT_ROADMAP_90.md` and module reuse scan at `docs/MODULE_REUSE_SCAN.md`; indexed both in `docs/README.md`.
+- Created Phase 1 implementation plan at `docs/superpowers/plans/2026-06-13-phase1-finding-evidence-plan.md`.
+- Attempted `npm install -D vitest`; sandbox/network approval rejected it, so adopted a no-new-dependency Node `--test` + existing esbuild runner.
+- Implemented first Phase 1 vertical slice: Finding domain types, Zod schemas, alert/AI-marker-to-Finding factories, Zustand Finding store actions, EvidenceCard/FindingList UI, and alert-click-to-Finding wiring.
+- Verified Phase 1 slice with `npm test -- src/store/useSceneStore.findings.test.ts src/domain/findingFactory.test.ts src/domain/findingSchemas.test.ts src/domain/findingTypes.test.ts`, `npm run build:check`, and `npm run lint`.
+- Extended Phase 1 with exploration coverage summary primitives, truth-boundary UI legend/badges, coverage dashboard card, and AI markPoints-to-Finding wiring.
+- Completed the remaining Phase 1 loop: manual annotations can be promoted into human-verified Findings, and PDF export now includes a Finding / Truth Boundary section.
+- Added `src/domain/findingCoverage.test.ts` and verified the expanded Phase 1 suite with Node `--test` + esbuild.
+- Re-ran `npm run build:check`, `npm run lint`, and `python3 -m compileall backend`; all pass, with the known 61 lint warnings and Vite chunk warnings remaining.
+- Browser in-app verification against `http://127.0.0.1:5173/` was blocked by local browser security policy; used build/lint/unit tests plus local Vite HTTP response smoke instead.
+
+## 2026-06-14
+
+- Resumed 90+ roadmap execution at user's request.
+- Replaced root `task_plan.md` with the active 90+ development plan.
+- Completed Phase 0 residual technical debt cleanup:
+  - Removed all ESLint warnings; `npm run lint` now reports 0 errors and 0 warnings.
+  - Tightened AI tool-call/action typing and ensured mock AI marker actions also create auditable Findings.
+  - Moved LLM settings persistence into `src/lib/llmSettings.ts` to remove React Fast Refresh export warnings.
+  - Typed R3F event handlers, Potree global integration, playback cache assignments, and sensor trend region configs.
+  - Fixed Hook dependency warnings in scenario loading, playback controls, profile analysis, and volume measurement.
+  - Converted ExportHub to lazy-load PDF/LAS/OBJ/CSV exporters only when the user exports.
+  - Added Vite manual chunks for React, 3D, UI, Markdown, and report vendors.
+  - Removed generated `backend/__pycache__` and `backend/processors/__pycache__`.
+- Verification:
+  - `npm test -- src/domain/findingCoverage.test.ts src/domain/findingFactory.test.ts src/domain/findingSchemas.test.ts src/domain/findingTypes.test.ts src/store/useSceneStore.findings.test.ts`: passed.
+  - `npm run lint`: passed with 0 warnings.
+  - `python3 -m compileall backend`: passed.
+  - `npm run build:check`: passed with no Vite warnings. Main app chunk is ~279.63 kB; vendor 3D/report chunks are split.
+- Started Phase 2 commercial role dashboards:
+  - Added `src/domain/roleDashboard.ts` and `src/domain/roleDashboard.test.ts`.
+  - Added `RoleDashboard` control-panel module with Manager, Safety, Engineer, and Timeline tabs.
+  - Verified role dashboard slice with domain tests, lint, and `npm run build:check`.
+- Started Phase 3 AI governed interaction:
+  - Added `src/domain/aiActionPolicy.ts` and tests.
+  - Added AI action policy evaluation, audit entries, unsafe threshold blocking, and human-review flags for dangerous AI markers.
+  - Added `aiActionAudit` store state and an `AIActionAuditPanel` in the control panel.
+  - Verified Phase 3 slice with expanded domain tests, lint, and `npm run build:check`.
+- Started Phase 4 CAD-ready export workflow:
+  - Added `src/domain/exportPreflight.ts` and tests.
+  - Added ExportHub preflight status, checks, and "include AI inferred" boundary control.
+  - Verified Phase 4 export slice with expanded domain tests, lint, and `npm run build:check`.
+- Completed Phase 5 international industrial polish slice:
+  - Added role/permission primitives and top-bar role selector with export permission gating.
+  - Added i18n catalog primitives and app title language toggle.
+  - Added `MissionSnapshotPanel` and `missionHistory` domain logic to show current mission delivery status.
+  - Added real AI undo policy/action surface for reversible actions, with audit records preserving the action snapshot.
+  - Added export history domain/store/UI so successful and failed deliveries remain visible.
+  - Removed non-error production debug logs from scene startup and Potree success loading.
+  - Verified the polish slice with focused domain tests, `npm run lint`, and `npm run build:check`.
+- Final verification:
+  - `npm test -- src/domain/accessControl.test.ts src/domain/i18nCatalog.test.ts src/domain/missionHistory.test.ts src/domain/exportHistory.test.ts src/domain/exportPreflight.test.ts src/domain/aiActionPolicy.test.ts src/domain/roleDashboard.test.ts src/domain/findingCoverage.test.ts src/domain/findingFactory.test.ts src/domain/findingSchemas.test.ts src/domain/findingTypes.test.ts src/store/useSceneStore.findings.test.ts`: passed, 23 tests.
+  - `npm run lint`: passed.
+  - `npm run build:check`: passed. Main app chunk is ~300.68 kB; vendor/report/3D chunks remain split.
+  - `python3 -m compileall backend`: passed.
+  - Vite preview HTTP smoke could not run because sandbox port listening returned `EPERM` and escalation review returned 503; static dist asset-reference smoke passed with 6 asset refs and 0 missing.
+  - Python `__pycache__` cleanup escalation also returned 503, so generated cache directories remain as untracked artifacts.
+- A2 Light Graphite UI/UX direction:
+  - Created visual direction artifacts under `docs/ui-ux-mockups/`, including the selected `hive-ui-a2-light-graphite.svg`.
+  - Added implementation plan at `docs/superpowers/plans/2026-06-14-a2-light-graphite-ui-plan.md`.
+  - Replaced global design tokens with A2 light graphite palette and Inter/Noto Sans SC typography.
+  - Converted top bar, side rails, compliance bar, chat panel, export center, settings dialog, base Card/Button/Badge primitives, and key commercial panels to the A2 surface model.
+  - Kept the central 3D canvas dark while moving workbench panels to white/light graphite cards.
+  - Verified with 23 domain/store tests, `npm run lint`, `npm run build:check`, and static dist asset-reference smoke.
+  - Browser visual capture for `http://127.0.0.1:5173/` was blocked by Browser Use policy, so no live app screenshot was captured.
+- Completed scene-semantic consistency cleanup for the underground flow scenario:
+  - Added centralized scene semantics for object labels, thresholds, trend metrics, robot telemetry, and export copy.
+  - Reworked sensor trend generation to aggregate scene-specific raw mock sensor fields, so underground trends now show dark-flow channel regions, permeability, ground temperature, and water pressure instead of fracture/gas labels.
+  - Reworked system status, threshold slider, export hub, PDF/CSV export, layer labels, measurement toolbar, and right-panel titles to consume scene semantics.
+  - Updated underground raw mock data so permeability values match karst/pressurized-channel scale and the 5000mD warning threshold.
+  - Fixed underground AI mock responses and quick-command routing so "水压异常", "地温梯度", "水质异常", fallback, and dangerous-point analysis no longer fall into generic fracture/gas wording.
+  - Fixed underground right-side object detail metrics: risk bars, geometry, auxiliary parameters, and node status now use permeability, water pressure, ground temperature, H2S, pH, and water saturation.
+  - Added regression tests for scene semantics, underground data scale, trend generation, scene metric summaries, and underground AI routing.
+- Verification after scene-semantic cleanup:
+  - `npm test -- src/domain/accessControl.test.ts src/domain/i18nCatalog.test.ts src/domain/missionHistory.test.ts src/domain/exportHistory.test.ts src/domain/exportPreflight.test.ts src/domain/aiActionPolicy.test.ts src/domain/roleDashboard.test.ts src/domain/findingCoverage.test.ts src/domain/findingFactory.test.ts src/domain/findingSchemas.test.ts src/domain/findingTypes.test.ts src/store/useSceneStore.findings.test.ts src/store/useSceneStore.selection.test.ts src/domain/sceneMetricSummary.test.ts src/lib/mockAI.underground.test.ts src/lib/sceneSemantics.test.ts src/data/sensorTrendGenerator.test.ts src/data/undergroundDataGenerator.test.ts`: passed, 32 tests.
+  - `npm run lint`: passed.
+  - `npm run build:check`: passed.
+- 2026-06-14 14:00:36: 浏览器逐项验收开始。已验证 fracture 子场景切换；发现金矿/油气页面的左侧告警列表仍残留 CH₄ 词，Potree 浏览器日志显示旧错误快照，需要干净会话复核。
+- 2026-06-14 14:03:30: 浏览器验收工业数据源切换：油气管线、核反应堆、炼油化工、地下暗流主状态/告警列表已显示对应场景术语；未复现岩层/裂缝残留。仍需修复/复核：fracture 子场景金矿/油气告警列表沿用煤矿 CH₄ 告警；浏览器日志接口仍返回 Potree 旧错误。
+- 2026-06-14 16:xx: 用户确认 90+ 路线继续推进，并新增关键约束：接口层必须具备容错性和可扩展性，不能写死数据标准；所有计划与设计必须落档并建立索引。
+- 2026-06-14 16:xx: 已新增正式规格文档 `docs/superpowers/specs/2026-06-14-hive-90-data-pipeline-design.md`，明确统一原始 mock 数据管线、适配层容错、场景语义、阶段目标与验收标准，并已登记到文档索引。
+- 2026-06-14 17:xx: 已新增实施计划 `docs/superpowers/plans/2026-06-14-hive-90-data-pipeline-plan.md` 并登记到 `docs/README.md`。
+- 2026-06-14 17:xx: 已实现统一 `sceneDataset` 领域层，使 mock `fractures / robots / alerts / scene stats` 开始共享同一数据真源；新增 `normalizers` 容错适配层，兼容字段别名、状态别名、坐标别名和缺失值。
+- 2026-06-14 17:xx: `sceneApi / robotApi / alertApi / fractureApi / useSceneStats` 已接入统一数据集；新增 `sceneDataset.test.ts` 和 `normalizers.test.ts`。
+- 2026-06-14 17:xx: 针对 3D 点击对象不稳定，已为机器人/裂缝/管道/暗流通道补充更大的透明命中体，并在 `Scene3DCanvas` 增加基于最近对象的选择吸附控制器。
+- 2026-06-14 17:xx: 自动化验证通过：Node 测试 17 项通过，`npm run lint` 通过，`npm run build:check` 通过。浏览器回归确认：3D 旋转恢复、金矿场景告警语义正确、英文切换部分关键面已生效。
+- 2026-06-14 17:xx: 仍在继续修复的主问题：浏览器里点击 3D 空间对象后，右侧详情联动仍不够稳定，说明对象选择链路还需继续硬化。
+- 2026-06-14 18:04 CST: 已确认用户此前查看的 `http://127.0.0.1:5173/` 不是当前源码实例，导致“代码已改但页面未变”的假象；已改用本地受控实例 `http://127.0.0.1:4173/` 做持续修复与回归。
+- 2026-06-14 18:04 CST: 已定位 3D 选择联动不稳定的一个根因：R3F `onPointerMissed` 空白清空逻辑与 document 级选择控制器并发打架。现已移除 `Canvas` 级 `onPointerMissed` 清空，改由 `SceneSelectionController` 在确认未命中机器人/裂缝后统一执行 `clearSelection + clearHighlight`。
+- 2026-06-14 18:04 CST: 新增 `clearSelection` store action 及其测试，确保机器人详情、裂缝详情、节点聚焦、高亮裂缝可以一起被一致清空。
+- 2026-06-14 18:04 CST: 回归验证通过：`node scripts/run-node-tests.mjs ...` 20 项测试通过，`npm run lint` 通过；在 `http://127.0.0.1:4173/` 上自动点击 3D 视图后，右侧详情区从空态切换为详情态，不再停留在“点击 3D 场景中的机器人或裂缝”。
+- 2026-06-14 18:xx CST: 持续浏览器回归已验证 fracture / pipeline / nuclear / refinery / underground 五类场景切换时，主任务文案、图层结构层、暗流语义、工业语义已基本跟场景对齐，未再复现“地下暗流里显示北部裂缝带/岩层控制”这类核心错配。
+- 2026-06-14 18:xx CST: 已继续完成英文态补强：顶部角色/导出提示、置信度卡片、图层面板、机器人面板、设置弹窗、导出中心、工具引导等关键工作台面板已接入 locale。
+- 2026-06-14 18:xx CST: `RobotFleet` 已接入任务名称英文映射与状态/机型/Mesh 角色英文标签，英文态下搜索占位、筛选器、数量文案、空态文案不再残留中文。
+- 2026-06-14 18:xx CST: `LayerToggle` 已按场景输出英文结构层/网络层/点云/POI 文案，工业场景下的图层名不再只保留中文。
+- 2026-06-14 18:xx CST: 已继续收敛测量工具视觉反馈：持久标注与剖面线/剖面面/端点体积显著缩小，不再用大球/粗柱遮挡场景；剖面分析面板新增热点测点、英文态按钮/风险标签/轴标签，并加强节点可见性。
+- 2026-06-14 18:xx CST: 自动化验证继续保持通过：`npm run lint`、`npm run build:check`、以及包含 `sceneDataset / normalizers / taskLocale / i18nCatalog / store selection / scene semantics` 的 23 项 Node 测试均通过。
+- 2026-06-14 19:xx CST: 已修复英文态与场景切换收口阶段引入的 React 无限更新问题。根因是 `ScenarioSelector` 在 `locale/messages/scenario` effect 中重复重写欢迎语，导致 `ChatPanel` 附近触发最大更新深度错误。现已改为基于欢迎语内容差异判定，仅在确有变化时更新。
+- 2026-06-14 19:xx CST: 已补强共享语义国际化：`threshold / trend / object label / compliance / fleet stat chips / quick command labels / top-bar locale toggle aria` 已统一接入 locale；地下暗流结构层名称从“岩溶围岩”收敛为更贴合产品定位的“含水层背景”。
+- 2026-06-14 19:xx CST: 新增 `scripts/ui-regression.mjs` 作为开发态浏览器回归脚本，直接通过 `window.__HIVE_STORE__` 驱动语言、场景与工具状态，覆盖欢迎语、场景语义、地下暗流/核反应堆/油气管线文案、工具引导与右侧详情联动基础校验。
+- 2026-06-14 19:xx CST: 最新验证结果：`npm run lint` 通过；`npm run build:check` 通过；`node scripts/ui-regression.mjs` 通过（基于 `http://127.0.0.1:5174/`）；另外确认 `npm test` 当前并非聚合测试入口，而是要求显式传入测试文件，这属于待补工程债务。
+- 2026-06-14 20:xx CST: 已补齐 Node 测试聚合入口。新增 `scripts/run-node-tests-lib.ts`、`scripts/run-node-tests-runner.ts` 及对应测试，解决了两类长期隐患：`npm test` 默认无全量矩阵、以及 Node 打包测试环境缺少 `import.meta.env` / 某些点号文件名产物在 `node --test` 下不稳定加载。
+- 2026-06-14 20:xx CST: `npm test` 现已成为真实可用的默认闸门，覆盖当前 30+ 个关键 Node 测试文件；同时保留 `npm test -- <file>` / `node scripts/run-node-tests.mjs <file>` 的精确跑法，便于局部 TDD。
+- 2026-06-14 20:xx CST: 已将 `useSceneStats` 调整为与 mock API 一致的 `sceneDataset` 懒加载路径，消除了 Vite 对 `sceneDataset.ts` 动态/静态混合引用的 chunk 警告，构建日志恢复干净。
+- 2026-06-14 20:xx CST: 最新整体验证结果：`npm test` 通过（61 tests / 29 suites）；`npm run lint` 通过；`npm run build:check` 通过且无 `sceneDataset` chunk warning；`node scripts/ui-regression.mjs` 通过（`http://127.0.0.1:5174/`）。
+- 2026-06-14 20:xx CST: 已把接口容错适配从“测试样例”推进到真实 live 读路径：`sceneApi.fetchSceneStats`、`robotApi.fetchRobots/fetchRobotById`、`alertApi.fetchAlerts/fetchAlertsByLevel` 现在都会通过 `normalizers.ts` 清洗字段别名、枚举别名、坐标别名、布尔/时间戳差异与缺省值。
+- 2026-06-14 20:xx CST: `normalizers.test.ts` 已扩展覆盖 `SceneStats` 与 `AlertEvent` 的替代字段形态；回归验证通过：`node scripts/run-node-tests.mjs src/api/normalizers.test.ts` 通过，`npm test` 通过（63 tests / 29 suites），`npm run build:check` 通过。
+- 2026-06-14 20:xx CST: 已继续补齐 live 容错链路：`fractureApi` 现已接入 `normalizeFractureRecord`，覆盖裂缝主数据、节点时间戳/机器人ID、路径 tuple/object 形态、传感器字段别名；`poiApi` 现已接入 `normalizePOIRecord`，兼容后端 `entry/danger/sensor` 等类型词和压力/温度/气体字段漂移。
+- 2026-06-14 20:xx CST: 当前 `normalizers.test.ts` 精度失败根因已确认并修复：`Float32Array` 序列化精度差异不是实现错误，测试已改为容差断言；同时新增 fracture normalizer 回归用例，防止 live 裂缝数据继续裸接。
+- 2026-06-14 20:xx CST: 最新命令级验证结果：`npm test` 通过（67 tests / 29 suites）；`npm run lint` 通过；`npm run build:check` 通过。
+- 2026-06-14 20:xx CST: 浏览器验收重新排障时确认两层现实约束：1）用户当前打开的 `http://127.0.0.1:5173/` 仍可能是旧实例或旧标签快照；2）独立 Playwright Chromium 在当前沙箱下会因 Mach port 权限失败而无法稳定启动。因此后续浏览器核验统一以受控 dev 实例为准，并优先使用源码/HTTP/DOM 交叉校验，不再直接信任旧标签表象。
+- 2026-06-14 20:xx CST: 已重新拉起受控开发实例 `http://127.0.0.1:5175/`。`curl /src/App.tsx` 已确认该实例包含最新 `window.__HIVE_STORE__` 暴露逻辑；但 in-app browser 当前仍混入旧 tab/旧 URL 日志，导致标签内可见内容与源码实例不完全一致，这一浏览器状态问题已单独记为验收环境噪声，不再与产品代码问题混淆。
+- 2026-06-14 20:3x CST: 已用受控实例 `http://127.0.0.1:5175/` 重新核验英文态与场景切换，不再依赖旧标签页表象。确认 `System Status / Robot Fleet / Sensor Trends / Layer Control / Measurement Tools` 等核心面板在 EN 下已切换完成；顶层场景下拉 5 个场景与 fracture 子场景 `Coal / Gold / Oil & Gas` 文案也已正常切换。
+- 2026-06-14 20:3x CST: 浏览器实测确认 `pipeline` 场景切换后不再残留 `北部裂缝带 / 地质岩体` 等 fracture 语义；`Pipeline Network` 与 `LEAK ALARM THRESHOLD` 等对应工业语义已出现。此前误判的 `Sensor Trends` 未切英文问题已排除，根因是早期取样文本混入旧状态，不是组件未接 locale。
+- 2026-06-14 20:4x CST: 已定位并修复一个真实国际化缺口：英文态下跨场景机器人任务名仍可能泄露中文。现已补齐 `pipeline / nuclear / refinery` 任务词表翻译，`taskLocale.test.ts` 增加对应回归；浏览器实测确认 `Valve seal inspection / Leak pinpointing / Pipeline settlement monitoring` 等英文任务名已经正常显示，不再残留 `管道壁厚超声检测` 等中文。
+- 2026-06-14 20:4x CST: 为消除这轮修复引入的验收噪声，已把 `ScenarioSelector` 中临时导出的 copy helper 拆分到 `src/lib/scenarioSelectorCopy.ts`，恢复 Fast Refresh lint 清洁状态，避免“为了测试方便”反向污染代码质量门槛。
+- 2026-06-14 20:4x CST: 最新完整命令级验证再次通过：`npm run lint` 通过、`npm test` 通过（67 tests / 29 suites）、`npm run build:check` 通过。当前构建产物显示主业务 chunk `dist/assets/index-IRR5afCJ.js` 约 363.12 kB gzip 115.99 kB，report/3d vendor chunk 仍然独立拆分。
+- 2026-06-14 21:0x CST: 已继续修复商业化验收期的英文残留问题。`MeasurementToolbar` 不再通过中文字符串 `replace()` 生成英文，而是改为 `sceneMeasureConfig` 的正式双语配置；新增 `sceneMeasureConfig.test.ts`，避免出现 `fracture密度` 这类半中半英文案。
+- 2026-06-14 21:0x CST: 浏览器受控实例上已再次确认英文态工具提示修复生效：`Profile` 提示为 `Cross-section profile`，`Area Select` 提示为 `segment density`，输入框占位为 `Enter a command...`。
+- 2026-06-14 21:1x CST: 为后续右栏联动验收补齐了开发态可观测性：`App.tsx` 新增 `DevStateBeacon`，暴露 `locale / dataSource / scenario / activeTool / selectedRobot / selectedFracture` 到隐藏 DOM；`MainLayout` 右栏新增 `detail-panel-header / detail-panel-subtitle` 测试钩子，`FractureDetailPanel` 空态与详情态也新增 test ids。
+- 2026-06-14 21:1x CST: 最新浏览器受控实测（fresh dev instance `http://127.0.0.1:5177/`）确认：切换 `EN` 后再切到 `Mock Scene 2 · Pipeline`，`dev-state` 显示 `locale=en-US / dataSource=pipeline / scenario=pipeline`；右栏头部为 `Pipe Segment Details`，副标题为 `Waiting for pipe segment selection`；工具提示为 `Area Select (F2) — ... summarize the segment density inside it.`。这证明场景切换、语言切换、右栏标题、空态文案和工具引导已经联动一致。
+- 2026-06-14 21:1x CST: 最新命令级验证再次通过：`npm test`（68 tests / 30 suites）通过、`npm run lint` 通过、`npm run build:check` 通过。当前产物主业务 chunk `dist/assets/index-WyyrEf7q.js` 约 365.75 kB gzip 116.41 kB。
+- 2026-06-14 21:2x CST: 已继续清理测量工具的演示级国际化债务。`DistanceMeasureTool` 的报告标题、字段标签、确认/重选按钮、起点/终点引导已接入 locale；`ProfileLineTool` 的两段顶部引导改为中英双语输出；`VolumeMeasure` 的区域分析面板、风险标签、空态提示、高度/垂直位置标签与确认按钮也已接入 locale，不再在英文态弹出大块中文工具浮层。
+- 2026-06-14 21:2x CST: 最新回归继续通过：`npm test`（70 tests / 31 suites）通过、`npm run lint` 通过、`npm run build:check` 通过。最新构建主业务 chunk `dist/assets/index-KxomyHya.js` 约 366.97 kB gzip 116.84 kB。
+- 2026-06-14 21:3x CST: 已继续补齐测量工具族的共享提示文案：`MeasurementSnapIndicator` 现在按 locale 输出 `Snapped to checkpoint / Snapped to channel / Free point`；`TextAnnotationTool` 的标题、placeholder、确认/重选按钮与空态引导也已接入 locale。英文态下 F1/F2/F3/F4 四个工具的顶部提示、操作按钮和共享吸附提示不再随机回落到中文。
+- 2026-06-14 21:3x CST: 最新命令级验证再次通过：`npm test`（70 tests / 31 suites）通过、`npm run lint` 通过、`npm run build:check` 通过。当前构建主业务 chunk `dist/assets/index-Db38IBQ-.js` 约 367.31 kB gzip 116.99 kB。
+- 2026-06-14 21:4x CST: 已继续硬化开发态浏览器验收链路。`App.tsx` 新增 `normalizeDevScenario()`，使旧式 `dev-scenario=fracture` 自动归一到真实裂缝子场景 `coal`，避免浏览器验收时出现“参数看似合法但实际无法选中裂缝”的假失败；新增 `App.devBootstrap.test.ts` 作为回归保护。
+- 2026-06-14 21:4x CST: 已收敛核场景右栏英文对象名，把 `Pipe Details` 改为更明确的 `Reactor Pipe Details`；`sceneSemantics.test.ts` 新增工业对象英文标签回归，覆盖 `pipeline / nuclear / refinery / underground`。
+- 2026-06-14 21:4x CST: 浏览器受控实例确认：`?dev-locale=en-US&dev-scenario=pipeline&dev-robot=R-001` 时，`dev-state` 显示 `selectedRobot=R-001`，右栏头部为 `Pipe Segment Details`，任务为 `Valve seal inspection`；`?dev-locale=en-US&dev-scenario=fracture&dev-fracture=F-001` 时，状态会落到 `scenario=coal` 且裂缝详情可见；`?dev-locale=en-US&dev-scenario=nuclear&dev-tool=text` 时，右栏头部为 `Reactor Pipe Details`。
+- 2026-06-14 21:5x CST: 已将工业场景机器人语义补成正式回归门禁。`RobotFleet` 为卡片任务新增 `data-testid=\"robot-card-task-${robot.id}\"`；`robotDataGenerator.scenario.test.ts` 现覆盖 `pipeline / nuclear / refinery / underground` 的任务词表和机型约束，确保不会再回退成“切到工业场景但任务仍像裂缝/煤矿”的假商业化面板。
+- 2026-06-14 21:5x CST: 浏览器定点核验已排除一条误报：核场景 `R-001` 的左卡片与右栏任务均为 `Online fatigue accumulation monitoring`；管线场景页面中唯一的 `robot-card-task-R-001` 节点文本为 `Valve seal inspection`。此前出现的 `Roof displacement monitoring` 混入，是宽范围 DOM 抽样带来的验收噪声，不是产品逻辑串场。
+- 2026-06-14 21:5x CST: 已把结构层英文文案从组件内字符串 `replace()` 收敛到 `getLocalizedStructureLayerCopy()` 正式 helper。地下暗流英文态结构层现在显示 `Aquifer Background`，不再残留中文 `含水层背景`；同时核场景结构层保持 `Containment Building`。对应 `sceneControlCopy.test.ts` 已补英文结构层回归。
+- 2026-06-14 21:5x CST: 最新浏览器实测确认 `underground` 英文场景下同时存在 `Aquifer Background / Underground Channels / Permeability Warning Threshold`，且 `含水层背景` 不再出现；命令级验证继续通过：`npm test`（72 tests / 29 suites）通过、`npm run lint` 通过、`npm run build:check` 通过。最新构建主业务 chunk `dist/assets/index-DOf7fWxf.js` 约 367.40 kB gzip 116.98 kB。
+- 2026-06-14 22:0x CST: 已继续收口聊天区的晚渲染国际化。`i18nCatalog` 新增 `chat.expand / chat.mockHint / chat.requestFailedTitle / chat.requestFailedBody`；`ChatPanel` 折叠态按钮、Mock 提示与请求失败文案现已全部随 locale 输出，不再在英文态回退成中文。
+- 2026-06-14 22:0x CST: 已继续清理 Findings 区块的国际化残留。`FindingList` 标题改为走 `finding.title`；`EvidenceCard` 的等级标签、`Truth Boundary`、`Confidence` 字段以及证据边界标签在英文态不再保留中文 `高危 / 可信边界 / 置信度 / 实测`。
+- 2026-06-14 22:0x CST: 最新浏览器受控实测（`http://127.0.0.1:5177/?dev-locale=en-US&dev-scenario=underground`）确认：当前页面可见 `Findings / Truth Boundary / Confidence / Mock mode · configure an API key in Settings / Enter a command...`；说明聊天区和 findings 区块的关键英文文案已经完成联动。
+- 2026-06-14 22:0x CST: 最新命令级验证再次通过：`npm test`（72 tests / 29 suites）通过、`npm run lint` 通过、`npm run build:check` 通过。最新构建主业务 chunk `dist/assets/index-awImyVhV.js` 约 368.42 kB gzip 117.26 kB。
+- 2026-06-14 22:1x CST: 已继续清理标注浮层的演示期文案残留。`AnnotationOverlay` 现通过 `annotation.promoteFinding / annotation.delete` 正式 i18n key 输出按钮标题和 CTA，不再在英文态显示 `转为风险发现 / 删除 / 变为发现`。
+- 2026-06-14 22:1x CST: 最新命令级验证继续保持通过：`npm test`（72 tests / 29 suites）通过、`npm run lint` 通过、`npm run build:check` 通过。最新构建主业务 chunk `dist/assets/index-0wD66uPJ.js` 约 368.79 kB gzip 117.31 kB。
+- 2026-06-14 22:3x CST: 已继续补强最后一轮浏览器验收钩子。`MainLayout` 新增 `detail-panel-title`；`MissionSnapshotPanel` 新增 `mission-snapshot-title / mission-snapshot-status / mission-project-name / mission-project-summary`；四类工具浮层新增 `distance-measure-* / profile-cross-section-* / area-measure-* / text-annotation-*` test ids；`MeasurementToolbar` 新增 `measurement-guide-exit`，方便稳定验证“退出 / 重选 / 关闭”链路。
+- 2026-06-14 22:3x CST: 最新命令级验证再次通过：`npm test` 通过（72 tests / 29 suites）；`npm run lint` 通过；`npm run build:check` 通过。最新构建主业务 chunk `dist/assets/index-BoWspf-v.js` 约 369.56 kB gzip 117.49 kB。
+- 2026-06-14 22:4x CST: 受控浏览器 `http://127.0.0.1:5177/` 定点验收确认：
+  - `underground + en-US` 时，右栏标题为 `Underground Channel Details`，空态副标题为 `Waiting for underground channel selection`，任务卡标题为 `Underground Fluid Exploration Mission`。
+  - 点击右上角语言切换后，右栏标题会切到中文 `暗流通道详情`，证明 `locale-toggle` 已真实联动到工作台主体，不再是假切换。
+  - `pipeline + dev-robot=R-001` 时，右栏标题为 `Pipe Segment Details`，副标题为 `R-001`，任务字段为 `Valve seal inspection`，说明机器人卡片/右栏联动与场景任务语义对齐。
+- 2026-06-14 22:4x CST: 四类工具流浏览器实测通过：
+  - `nuclear + text`：工具引导可见，点击 `ESC Exit` 后引导消失；
+  - `underground + text`：点击场景后编辑器出现，输入 `Check seepage` 并确认后编辑器关闭；
+  - `underground + distance`：两点测距后报告浮层出现，点击 `Reselect` 后报告消失；
+  - `underground + profile`：两点生成剖面面板，点击 `Reselect` 后面板消失；
+  - `underground + area`：拖拽区域后分析面板出现，点击 `Reselect` 后面板消失。
+- 2026-06-14 22:4x CST: 浏览器验收过程中确认一条环境噪声：隐藏 `dev-state` beacon 只能等待 `attached`，不能等待 `visible`；这不是产品 bug，而是我们为自动化暴露的隐藏状态节点本身不可见。后续浏览器回归统一按 `attached` 检查该信标。
+- 2026-06-15 00:xx CST: 已按 P0 稳定化目标收敛原“90+ 连续开发”大目标，避免无边界扩展。本轮重点完成 3D 直接点选稳定化与可重复 UI 回归：
+  - `projectWorldToScreen()` 现在同时校验 NDC 深度与 canvas 屏幕边界，避免自动化/开发测试拿到“z 可见但实际在画布外”的假目标。
+  - `useCanvasInteraction` 允许机器人与测点透明命中体参与射线检测，修复此前透明 hit shell 被低透明过滤排除的问题。
+  - `SceneSelectionController` 增加机器人近邻优先与精确节点点击阈值，用户点机器人视觉目标时优先打开机器人详情，只有精确命中测点/节点时才切到节点/通道详情。
+  - `DevProjectionBridge` 的 `dev-interactions` 改为输出全量可见交互目标；`window.__HIVE_TEST_API__.getInteractiveTargets()` 优先读取真实渲染 beacon，避免测试 API 与当前画面使用两套目标源。
+  - `scripts/ui-regression.mjs` 已扩展为可重复 P0 UI 验收脚本，覆盖语言切换、场景语义、工具引导和 7 个场景的 3D 直接点选；对密集重叠目标采用多候选验证，并将不可独立点击的重叠节点作为 notes 记录而非误判产品失败。
+- 2026-06-15 00:xx CST: 最新验证结果：
+  - `npm test` 通过（72 tests / 29 suites / 0 fail）。
+  - `npm run lint` 通过。
+  - `npm run build:check` 通过。
+  - `HIVE_UI_BASE_URL=http://127.0.0.1:5177/ node scripts/ui-regression.mjs` 通过（failures 为空）；notes 仅记录部分场景节点/路径与机器人重叠，无法作为独立点击目标，这已转为后续 P1 “重叠对象选择器/拾取列表”需求。
+- 2026-06-15 00:xx CST: 已按用户要求单独列出 90+ 的 P0 计划，并落档到 `docs/superpowers/plans/2026-06-15-hive-90-p0-readiness-plan.md`。本轮只做会影响学术/客户演示可信度的 P0：源数据真实性、接口容错、场景语义、3D 点选联动、工具工作流、最终部署门禁；企业协作、深度 CAD/GIS、复杂资产历史等先归入 P1/P2。
+- 2026-06-15 00:xx CST: P0 执行进展：
+  - 源数据真实性：`SceneStats.avgConf` 不再是固定 60，而是从节点传感器有效性、节点时间戳、机器人测点绑定和 Mesh 在线比例推导出的数据可信度；新增跨 7 场景一致性测试，防止节点数、告警数、机器人数出现不可能关系。
+  - API 容错：normalizer 已兼容数字字符串、百分比形态、对象坐标、mesh 连接布尔漂移、场景/机器人汇总越界值，并对不可能的在线传感器/超阈值/mesh 数量做安全钳制。
+  - 场景语义：`LayerToggle` 的英文网络层名称改为正式映射，不再通过中文字符串 replace 拼接；新增地下暗流/管线/核场景英文网络名回归。
+  - 浏览器回归：`scripts/ui-regression.mjs` 扩展为 7 场景中英文语义矩阵，并继续覆盖 7 场景 3D 直接点选与工具入口。当前聚焦验证通过，notes 仅记录密集重叠目标无法独立点击，归入后续 P1 显式重叠对象选择器。
+- 2026-06-15 00:xx CST: P0 最终本地门禁通过：
+  - `npm test` 通过（75 tests / 29 suites / 0 fail）。
+  - `npm run lint` 通过。
+  - `npm run build:check` 通过。
+  - `HIVE_UI_BASE_URL=http://127.0.0.1:5177/ node scripts/ui-regression.mjs` 通过（failures 为空）。
+- 2026-06-15 01:xx CST: P1 重叠 3D 对象选择器已实现：
+  - 当用户点击位置同时接近机器人与测点/通道路径时，不再只靠优先级猜测，而是在点击点旁弹出 `Select Object / 选择重叠对象` 菜单。
+  - 菜单列出 Robot / Node / Path 候选，用户选择后再打开对应右栏详情并执行聚焦/高亮。
+  - `window.__HIVE_TEST_API__.getOverlappingTargets()` 和 `scripts/ui-regression.mjs` 已补充自动化覆盖；回归可验证重叠菜单出现、候选不少于 2 个、点击候选后右栏详情打开。
+- 2026-06-15 02:xx CST: P2/P3 可落地收尾：
+  - GitHub Pages workflow 已从项目构建 Node 20 升级到 Node 24，并为 GitHub JavaScript Actions 设置 `FORCE_JAVASCRIPT_ACTIONS_TO_NODE24=true`，处理 Node 20 runner 弃用告警。
+  - `docs/README.md` 已补入 2026-06-15 P0 readiness 计划索引，并更新最后更新时间。
+  - `task_plan.md` 与 P0 计划的剩余项已同步：重叠对象选择器不再列为未完成项；仍需外部产品/真实硬件决策的企业协作、真实数据接入、深度 CAD/GIS 往返、资产维护历史明确保留为后续范围。
+- 2026-06-15 02:xx CST: 已新增强制规范 `docs/SCENE_PACK_STANDARD.md`，把未来新增客户/行业场景收敛为“场景包 + 客户展示包”的固定接入规则。规范明确：新增场景必须先接原始数据/normalizer/sceneDataset，再由 sceneSemantics 驱动 UI、AI、导出和回归；客户定制只能改变展示优先级、阈值来源和默认视图，不得绕过数据真实性或手填面板数字。`docs/README.md` 已登记为 S5。
+- 2026-06-15 02:xx CST: 场景包规范本轮文档验证通过：`npm test` 通过（75 tests / 29 suites / 0 fail），`npm run lint` 通过，`npm run build:check` 通过。此次仅修改文档与索引，未改运行时代码，因此未重跑浏览器 UI regression。
